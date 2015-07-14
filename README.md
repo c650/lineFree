@@ -8,4 +8,4 @@ PASSWORDS (do this last)
 ###CHARLES:
 Databases
 App controller
-Models
+Models -> User, Post, Place
