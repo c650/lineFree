@@ -1,6 +1,7 @@
 require_relative "../../config/environment.rb"
-require_relative "../models/fweet.rb"
 require_relative "../models/user.rb"
+require_relative "../models/post.rb"
+require_relative "../models/place.rb"
 class ApplicationController < Sinatra::Base
   
   configure do
