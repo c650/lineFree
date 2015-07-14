@@ -6,6 +6,6 @@ Styling
 PASSWORDS (do this last) 
 
 ###CHARLES:
-Databases
-App controller
+Databases,
+App controller,
 Models -> User, Post, Place
