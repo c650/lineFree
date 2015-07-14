@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <title></title>
+  </head>
+  
+  <body>
+  	<a id="home_link" href="/"><h1>Welcome to ___</h1></a>
+  	<nav>
+	  	<ul class="status_bar">
+		  	<% if logged_in? %>
+		   		<li><h4><%= current_user.username %></h4></li>
+		  		<li><a href="/logout">Sign Out</a></li>
+		  	<%else%>
+		  		<li><a href="/login">Login</a></li>
+		  		<li><a href="/new_user">Sign Up</a></li>
+		  	<%end%>
+	  	</ul>
+  	</nav>
+    <%= yield %>
+  </body>
+</html>
