@@ -11,6 +11,16 @@ class ApplicationController < Sinatra::Base
     set :session_secret, "please_don't_hack_me" #security measure
   end
 
+  get "/" do
+    @users = User.all
+    erb :index
+  end
+  
+  post '/' do
+    @users = User.all
+    redirect to '/'
+  end
+
   get '/login' do
       erb :login
   end
@@ -23,16 +33,6 @@ class ApplicationController < Sinatra::Base
     else
       redirect to '/login'
     end
-  end
-
-  get "/" do
-    @users = User.all
-    erb :index
-  end
-  
-  post '/' do
-    @users = User.all
-    redirect to '/'
   end
 
   get '/new_user' do
