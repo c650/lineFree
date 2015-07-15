@@ -34,6 +34,16 @@
             </div>
         </nav>
     </div>
+    <div class="container">
+        <div class="card-panel col s12">
+            <form action="/search/:search_term" method="POST">
+                <div class="input-field">
+                    <input id="search" name="search" type="search" required>
+                    <label for="search"><i class="material-icons left">search</i>Search</label>
+                </div>
+            </form>
+        </div>
+    </div>
     <%= yield %>
 </body>
 
