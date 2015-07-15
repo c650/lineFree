@@ -1,26 +1,43 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="en">
 
-  <link rel="stylesheet" type="text/css" href="css/styles.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+    <title>lineFree</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../../css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link rel="stylesheet" type="text/css" href="../../css/styles.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="../../js/materialize.min.js"></script>
+    <script src="../../js/myscripts.js"></script>
+</head>
 
-    <title></title>
-  </head>
-  
-  <body>
-  	<a id="home_link" href="/"><h1>Welcome to ___</h1></a>
-  	<nav>
-	  	<ul class="status_bar">
-		  	<% if logged_in? %>
-		   		<li><h4><%= current_user.username %></h4></li>
-		  		<li><a href="/logout">Sign Out</a></li>
-		  	<%else%>
-		  		<li><a href="/login">Login</a></li>
-		  		<li><a href="/new_user">Sign Up</a></li>
-		  	<%end%>
-	  	</ul>
-  	</nav>
+<body>
+    <div class="navbar-fixed">
+        <nav class="green">
+            <div class="nav-wrapper">
+                <a href="/" class="brand-logo left">lineFree</a>
+                <% if logged_in? %>
+                    <ul class="right">
+                        <a class="green darken-3" href="/logout">Logout</a>
+                    </ul>
+                    <% else %>
+                        <% end %>
+            </div>
+        </nav>
+    </div>
+    <div class="container">
+        <div class="card-panel col s12">
+            <form action="/search/:search_term" method="POST">
+                <div class="input-field">
+                    <input id="search" type="search" required>
+                    <label for="search"><i class="material-icons left">search</i>Search</label>
+                </div>
+            </form>
+        </div>
+    </div>
     <%= yield %>
-  </body>
+</body>
+
 </html>
