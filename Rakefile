@@ -1,5 +1,7 @@
 require 'sinatra/activerecord/rake' 
 require './config/environment'
+require_relative "./app/models/place.rb"
+require_relative "./app/models/post.rb"
 require_relative "./app/models/user.rb"
 
 task :console do

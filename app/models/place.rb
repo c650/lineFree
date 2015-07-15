@@ -1,5 +1,5 @@
 require_relative "../../config/environment.rb"
 
-class User < ActiveRecord::Base
+class Place < ActiveRecord::Base
 	has_many :posts
 end
