@@ -1,3 +1,4 @@
+require 'Indirizzo'
 require_relative "../../config/environment.rb"
 require_relative "../models/user.rb"
 require_relative "../models/post.rb"
@@ -24,9 +25,9 @@ class ApplicationController < Sinatra::Base
   end
 ###### SEARCH ######
   post'/search/:search_term' do
-    @place = Place.find_by(address: params[:search_term]) 
+    @place = Place.find_by(address: Indirizzo::Address.new(params[:search_term])) 
     @posts = Post.find_by(place_id: @place.id)
-    erb :search_results
+    erb :search_result
   end
 ###### LOGIN ######
   get '/login' do
@@ -35,7 +36,7 @@ class ApplicationController < Sinatra::Base
 
   post '/login' do
     @user = User.find_by(username: params[:username])
-    if @user
+    if @user.password == params[:password]
       session[:user_id] = @user.id
       redirect to '/'
     else
@@ -48,25 +49,38 @@ class ApplicationController < Sinatra::Base
   end
   
   post '/new_user' do
-    User.create(username: params[:username], first_name: params[:first_name], last_name: params[:last_name], email: params[:email], phone_number: params[:phone_number], birthdate: params[:birthdate])
+    @user = User.new(username: params[:username], first_name: params[:first_name], last_name: params[:last_name], email: params[:email], phone_number: params[:phone_number], birthdate: params[:birthdate])
+    @user.password = params[:password]
+    @user.save
+
+    session[:user_id] = @user.id
+
     redirect to "/"
   end
 ###### NEW POST ######
   get '/new_post' do #working on logistics of this
-    Post.create()
-    erb :new_post
+    if logged_in?
+      erb :new_post
+    else
+      redirect to '/login'
+    end
   end
   
   post '/new_post' do
+    Post.create()
     redirect to "/"
   end
 ###### NEW PLACE ######
   get '/new_place' do 
-    Place.create(address: params[:address], name: params[:name], city: params[:city], state: params[:state], zipcode: params[:zipcode].to_i)
-    erb :new_place
+    if logged_in?
+      erb :new_place
+    else
+      redirect to '/'
+    end
   end
   
   post '/new_place' do
+    Place.create(address: Indirizzo::Address.new(params[:search_term]), name: params[:name].downcase, city: params[:city].downcase, state: params[:state], zipcode: params[:zipcode].to_i)
     redirect to "/"
   end
 ###### LOGOUT ######
@@ -78,7 +92,7 @@ class ApplicationController < Sinatra::Base
 
 ###### HELPER METHODS ######
 
-  def current_user
+  def current_user #method to get the current user
     if logged_in?
       User.find(session[:user_id])
     else
@@ -86,8 +100,24 @@ class ApplicationController < Sinatra::Base
     end
   end
 
-  def logged_in?
+  def logged_in? #checks if logged in
     session[:user_id]
+  end
+
+  def check_birthday(birthdate) #checks to see if age is greater than or eq 16
+    time_of_birth = birthdate.split('/')
+    birthday = Time.new
+    birthday.month = time_of_birth[0]
+    birthday.day = time_of_birth[1]
+    birthday.year = time_of_birth[2]
+
+    age_check = birthday + 504911232
+
+    if (Time.now - age_check) > 0 
+      return true
+    else
+      return false
+    end
   end
 
 end

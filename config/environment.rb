@@ -1,4 +1,5 @@
 require 'bundler'
+require 'Indirizzo'
 Bundler.require
 
 configure :development do
