@@ -13,7 +13,7 @@ class ApplicationController < Sinatra::Base
 ###### ROOT ######
   get "/" do
     @posts = Post.all
-    @places = Place.all
+    @place = Place.all
     erb :index
   end
   
@@ -85,7 +85,7 @@ class ApplicationController < Sinatra::Base
   end
   
   post '/new_place' do
-    Place.create(address: params[:address], name: params[:name].downcase, type: params[:type], city: params[:city].downcase, state: params[:state], zipcode: params[:zipcode].to_i)
+    Place.create(address: params[:address], name: params[:name].downcase, city: params[:city].downcase, state: params[:state], zipcode: params[:zipcode].to_i)
     redirect to "/"
   end
 ###### LOGOUT ######
