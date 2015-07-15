@@ -1,14 +1,14 @@
 # TASKS:
 
 ###JOHN:
-	:Views (GLYPHICONS AND MOBILE)
-	:Styling
-	:PASSWORDS (do this last) 
+	Views (GLYPHICONS AND MOBILE)
+	Styling
+	PASSWORDS (do this last) 
 
 ###CHARLES:
-	:Databases,
-	:App controller,
-	:xModels -> User, Post, Place
+	Databases,
+	App controller,
+	Models -> User, Post, Place
 
 #Model/Migration Layout
 

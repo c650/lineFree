@@ -1,0 +1,69 @@
+body {
+/*	background-color: #C0DEED;
+	background-image: url("https://abs.twimg.com/images/themes/theme1/bg.png");
+	background-repeat: no-repeat;
+    background-position: right top;
+    background-attachment: fixed;*/
+}
+
+/*#info_name {
+	font-size: 18px;
+}
+
+#info_name:link, #info_name:visited {
+	font-size: 18px;
+	font-weight: 600;
+	color: black;
+}
+
+#info_name:hover {
+	text-decoration: underline;
+}
+
+.button-fix {
+	color: white;
+}
+
+a:link, a:visited { 
+    color: inherit;
+    cursor: auto;
+}
+
+a:hover {
+	text-decoration: inherit;
+	color: inherit;
+}
+
+.username {
+	font-size: 13px;
+}
+
+.content {
+	font-size: 14px;
+}*/
+
+.nav-wrapper {
+	margin-left:20px;
+	margin-right:15px
+}
+
+.input-field label {
+	color: #4caf50;
+}
+.input-field input[type]:focus + label {
+	color: #4caf50;
+}
+
+.input-field input[type]:focus {
+	border-bottom: 1px solid #4caf50;
+    box-shadow: 0 1px 0 0 #4caf50;
+}
+
+.input-field textarea[type]:focus + label {
+	color: #4caf50;
+}
+
+.input-field textarea[type]:focus {
+	border-bottom: 1px solid #4caf50;
+    box-shadow: 0 1px 0 0 #4caf50;
+}
