@@ -1,4 +1,3 @@
-require 'Indirizzo'
 require_relative "../../config/environment.rb"
 require_relative "../models/user.rb"
 require_relative "../models/post.rb"
@@ -25,9 +24,14 @@ class ApplicationController < Sinatra::Base
   end
 ###### SEARCH ######
   post'/search/:search_term' do
-    @place = Place.find_by(address: Indirizzo::Address.new(params[:search_term])) 
+    @search_term = params[:search]
+    @place = Place.find_by(address: @search_term)
     @posts = Post.find_by(place_id: @place.id)
-    erb :search_result
+    if @place == nil
+      redirect to '/new_place'
+    else
+      erb :search_result
+    end
   end
 ###### LOGIN ######
   get '/login' do
@@ -67,7 +71,8 @@ class ApplicationController < Sinatra::Base
   end
   
   post '/new_post' do
-    Post.create()
+    @place = Place.find_by(address: params[:address])
+    Post.create(user_id: session[:user_id], place_id: @place.id, wait_time: params[:wait_time], people_in_line: params[:people_in_line])
     redirect to "/"
   end
 ###### NEW PLACE ######
@@ -80,7 +85,7 @@ class ApplicationController < Sinatra::Base
   end
   
   post '/new_place' do
-    Place.create(address: Indirizzo::Address.new(params[:search_term]), name: params[:name].downcase, city: params[:city].downcase, state: params[:state], zipcode: params[:zipcode].to_i)
+    Place.create(address: params[:address], name: params[:name].downcase, type: params[:type], city: params[:city].downcase, state: params[:state], zipcode: params[:zipcode].to_i)
     redirect to "/"
   end
 ###### LOGOUT ######
