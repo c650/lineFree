@@ -45,10 +45,12 @@
 	###Need A:
 	
 	Root page (see above)
-	Search Page
+	Search Page (with dropdown for type of seach [ex: name, address])
 	New post page
 	New place page
 	New user page
 	Login Page
 	A dynamic url page for each post & place
-
+#Methods Needed
+	Need method for formatting addresses
+	Need method for checking birthdays
