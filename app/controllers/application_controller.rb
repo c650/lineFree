@@ -1,4 +1,3 @@
-require 'Indirizzo'
 require_relative "../../config/environment.rb"
 require_relative "../models/user.rb"
 require_relative "../models/post.rb"
