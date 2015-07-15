@@ -1,5 +1,6 @@
 	$(document).ready(function() {
       $('select').material_select();
+      $(".button-collapse").sideNav();
   	});
   	$(".dropdown-button").dropdown();
   	$('.fixed-action-btn').openFAB();
