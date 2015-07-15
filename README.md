@@ -1,14 +1,14 @@
 # TASKS:
 
 ###JOHN:
-Views (GLYPHICONS AND MOBILE)
-Styling
-PASSWORDS (do this last) 
+	:Views (GLYPHICONS AND MOBILE)
+	:Styling
+	:PASSWORDS (do this last) 
 
 ###CHARLES:
-Databases,
-App controller,
-Models -> User, Post, Place
+	:Databases,
+	:App controller,
+	:xModels -> User, Post, Place
 
 #Model/Migration Layout
 
@@ -18,7 +18,7 @@ Models -> User, Post, Place
 	:last_name
 	:email 
 	:username (screen name for post)
-	:phone_number (optional)
+	:phone_number (optional) 
 	:birthdate (to check for users that are too young)
 
 ###A Post has these attributes:
@@ -36,13 +36,16 @@ Models -> User, Post, Place
 	:address (street address)
 	:city
 	:state (we start in USA) (must be dropdown for standardization)
+	:zipcode (as a string)
 
 # Views Layouts
 
 	Root ('/') page should have a search bar, and buttons for login/logout/signup and creation of post/place
 
-###Need A:
+	###Need A:
+	
 	Root page (see above)
+	Search Page
 	New post page
 	New place page
 	New user page
