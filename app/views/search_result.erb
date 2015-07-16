@@ -1,16 +1,15 @@
-<ul class="collapsible" data-collapsible="accordion">
+
 <% if @place.is_a? Array %>
-	<% @place.each do |fweet| %>
-	    <li>
-	      <div class="collapsible-header"><%= "#{@place.name}" %> <span id="place_type"><%= "#{@place.type}" %></span></div>
-	      <div class="collapsible-body"><h6><%= "#{@place.address}" %></h6></div>
-	    </li>
+	<% @place.each do |place| %>
+	    <div class="card-panel">
+	    	<div class="green-text row"><%= "#{place.name.capitalize}" %></div>
+	    	<div class="collapsible-body row"><h6><%= "#{place.address}" %></h6></div>
+	    </div>
 	<% end %>
 <% else %>
-	<li>
-	      <div class="collapsible-header"><%= "#{@place.name}" %> <span id="place_type"><%= "#{@place.type}" %></span></div>
-	      <div class="collapsible-body"><h6><%= "#{@place.address}" %></h6></div>
-	    </li>
+	<div class="card-panel">
+		<div class="green-text row"><%= "#{place.name}" %></div>
+	    <div class="collapsible-body row"><h6><%= "#{place.address}" %></h6></div>
+	</div>
 <% end %>
-</ul>
-  
+

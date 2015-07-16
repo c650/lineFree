@@ -13,20 +13,21 @@ class ApplicationController < Sinatra::Base
 ###### ROOT ######
   get "/" do
     @posts = Post.all
-    @places = Place.all
+    @place = Place.all
     erb :index
   end
-  
-  post '/' do
-    @posts = Post.all
-    @places = Place.all
-    redirect to '/'
-  end
+
 ###### SEARCH ######
   post'/search/:search_term' do
-    @search_term = params[:search]
-    @place = Place.find_by(address: @search_term)
-    @posts = Post.find_by(place_id: @place.id)
+    if params[:search] == 'Donald Trump for President'
+      redirect to 'https://www.donaldjtrump.com/about'
+    end
+    @posts = Array.new
+    @place = Array.new
+    @place.push(Place.find_by(address: params[:search]))
+    @place.each do |place|
+    @posts.push(Post.find_by(place_id: place.id))
+    end
     if @place == nil
       redirect to '/new_place'
     else
@@ -85,7 +86,7 @@ class ApplicationController < Sinatra::Base
   end
   
   post '/new_place' do
-    Place.create(address: params[:address], name: params[:name].downcase, type: params[:type], city: params[:city].downcase, state: params[:state], zipcode: params[:zipcode].to_i)
+    Place.create(address: params[:address], name: params[:name].downcase, city: params[:city].downcase, state: params[:state], zipcode: params[:zipcode].to_i)
     redirect to "/"
   end
 ###### LOGOUT ######
@@ -112,9 +113,9 @@ class ApplicationController < Sinatra::Base
   def check_birthday(birthdate) #checks to see if age is greater than or eq 16
     time_of_birth = birthdate.split('/')
     birthday = Time.new
-    birthday.month = time_of_birth[0]
-    birthday.day = time_of_birth[1]
-    birthday.year = time_of_birth[2]
+    birthday.month = time_of_birth[0].to_i
+    birthday.day = time_of_birth[1].to_i
+    birthday.year = time_of_birth[2].to_i
 
     age_check = birthday + 504911232
 
