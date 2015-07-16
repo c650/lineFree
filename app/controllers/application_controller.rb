@@ -30,16 +30,16 @@ class ApplicationController < Sinatra::Base
       redirect to 'https://www.donaldjtrump.com/about'
     end
     @posts = Array.new
-    @place = Array.new
-    @place.push(Place.find_by(address: params[:search]))
-    @place.each do |place|
-    @posts.push(Post.find_by(place_id: place.id))
-    end
+    @place = (Place.find_by(address: params[:search]))
     if @place == nil
       redirect to '/new_place'
-    else
-      erb :search_result
     end
+    if @place.is_a? Array
+      @place.each do |place|
+        @posts.push(Post.find_by(place_id: place.id))
+      end
+    end
+    erb :search_result
   end
 ###### LOGIN ######
   get '/login' do
