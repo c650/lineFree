@@ -1,7 +1,8 @@
+
 <% if @place.is_a? Array %>
 	<% @place.each do |place| %>
 	    <div class="card-panel">
-	    	<div class="green-text row"><%= "#{place.name}" %></div>
+	    	<div class="green-text row"><%= "#{place.name.capitalize}" %></div>
 	    	<div class="collapsible-body row"><h6><%= "#{place.address}" %></h6></div>
 	    </div>
 	<% end %>
@@ -11,3 +12,4 @@
 	    <div class="collapsible-body row"><h6><%= "#{place.address}" %></h6></div>
 	</div>
 <% end %>
+

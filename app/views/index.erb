@@ -1,11 +1,13 @@
-<!-- <div class="container">
-    <div class="card-panel col s12">
-        <form action="/search/:search_term" method="POST">
-            <div class="input-field">
-                <input id="search" name="search_term" type="search" required>
-                <label for="search"><i class="material-icons left">search</i>Search</label>
-            </div>
-        </form>
+<div class="row">
+    <div class="col s12 m12 l3 offset-l3">
+        <ul class="collapsible" data-collapsible="accordion">
+            <% @place.each do |place| %>
+                <li>
+                  <div class="collapsible-header"><%= "#{place.name.capitalize}" %></div>
+                  <div class="collapsible-body"><h6><%= "#{place.address}" %></h6></div>
+                </li>
+            <% end %>
+        </ul>
     </div>
 </div> -->
 <div class="container">
@@ -37,4 +39,13 @@
     </div>
 </div>
 
-
+<div class="container">
+        <div class="card-panel col s12">
+            <form action="/search/:search_term" method="POST">
+                <div class="input-field">
+                    <input id="search" name="search" type="search" required>
+                    <label for="search"><i class="material-icons left">search</i>Search by Address</label>
+                </div>
+            </form>
+        </div>
+</div>
