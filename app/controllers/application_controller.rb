@@ -12,16 +12,13 @@ class ApplicationController < Sinatra::Base
   end
 ###### ROOT ######
   get "/" do
-    @posts = Post.all
-    @place = Place.all
+    @posts = Array.new
+    @posts.push(Post.all).flatten
+    @place = Array.new
+    @place.push(Place.all).flatten
     erb :index
   end
-  
-  post '/' do
-    @posts = Post.all
-    @places = Place.all
-    redirect to '/'
-  end
+
 ###### SEARCH ######
   post'/search/:search_term' do
     @search_term = params[:search]
