@@ -31,7 +31,6 @@ class ApplicationController < Sinatra::Base
     end
     @posts = Array.new
     @place = (Place.find_by(address: params[:search]))
-    end
     if @place == nil
       redirect to '/new_place'
     end
