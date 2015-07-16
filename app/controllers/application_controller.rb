@@ -18,7 +18,7 @@ class ApplicationController < Sinatra::Base
     set :session_secret, "please_don't_hack_me" #security measure
   end
 ###### ROOT ######
-  get "/" do
+  get "/" do #needs error check if we don't have any post/places
     @posts = Post.all
     @place = Place.all
     erb :index
@@ -92,8 +92,13 @@ class ApplicationController < Sinatra::Base
   
   post '/new_post' do
     @place = Place.find_by(address: params[:address])
-    Post.create(user_id: session[:user_id], place_id: @place.id, wait_time: params[:wait_time], people_in_line: params[:people_in_line])
-    redirect to "/"
+    if @place != nil
+      Post.create(user_id: session[:user_id], place_id: @place.id, wait_time: params[:wait_time], people_in_line: params[:people_in_line])
+      redirect to "/"
+    else 
+      flash[:error] = "The place you were posting about doesn't exist in our records yet."
+      redirect to '/new_place'
+    end
   end
 ###### NEW PLACE ######
   get '/new_place' do 
