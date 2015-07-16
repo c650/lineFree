@@ -113,10 +113,11 @@ class ApplicationController < Sinatra::Base
   def check_birthday(birthdate) #checks to see if age is greater than or eq 16
     time_of_birth = birthdate.split('/')
     birthday = Time.new
-    birthday.month = time_of_birth[0].to_i
-    birthday.day = time_of_birth[1].to_i
-    birthday.year = time_of_birth[2].to_i
-
+    birthday = birthday.to_a
+    birthday[3] = time_of_birth[1].to_i
+    birthday[4] = time_of_birth[0].to_i
+    birthday[5] = time_of_birth[2].to_i
+    birthday = Time.utc(*birthday)
     age_check = birthday + 504911232
 
     if (Time.now - age_check) > 0 
