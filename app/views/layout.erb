@@ -19,7 +19,7 @@
             <div class="nav-wrapper">
                 <a href="/" class="brand-logo left">lineFree</a>
                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-                <% #if logged_in? %>
+                <% if logged_in? %>
                     <ul class="right hide-on-med-and-down">
                         <li><a href="/logout">Logout</a></li>
                     </ul>
@@ -29,8 +29,8 @@
                         <li><a href="collapsible.html">Javascript</a></li>
                         <li><a href="mobile.html">Mobile</a></li>
                     </ul>
-                    <% #else %>
-                        <% #end %>
+                    <% else %>
+                        <% end %>
             </div>
         </nav>
     </div>
