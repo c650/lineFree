@@ -71,8 +71,15 @@ class ApplicationController < Sinatra::Base
 
       redirect to "/"
     else
-      flash[:error] = "Your username or password does not match those on your account."
+      flash[:error] = "You are not old enough to sign up."
+      redirect to "/"
     end
+  end
+
+  get '/lolz' do
+    erb :lolz
+    sleep(20)
+    redirect to 'http://disney.com/'
   end
 ###### NEW POST ######
   get '/new_post' do #working on logistics of this
