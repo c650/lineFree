@@ -26,7 +26,7 @@ class ApplicationController < Sinatra::Base
     @place = Array.new
     @place.push(Place.find_by(address: params[:search]))
     @place.each do |place|
-      @posts.push(Post.find_by(place_id: place.id))
+    @posts.push(Post.find_by(place_id: place.id))
     end
     if @place == nil
       redirect to '/new_place'
