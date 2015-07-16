@@ -54,13 +54,17 @@ class ApplicationController < Sinatra::Base
   end
   
   post '/new_user' do
-    @user = User.new(username: params[:username], first_name: params[:first_name], last_name: params[:last_name], email: params[:email], phone_number: params[:phone_number], birthdate: params[:birthdate])
-    @user.password = params[:password]
-    @user.save
+    if check_birthday(params[:birthdate])
+      @user = User.new(username: params[:username], first_name: params[:first_name], last_name: params[:last_name], email: params[:email], phone_number: params[:phone_number], birthdate: params[:birthdate])
+      @user.password = params[:password]
+      @user.save
 
-    session[:user_id] = @user.id
+      session[:user_id] = @user.id
 
-    redirect to "/"
+      redirect to "/"
+    else
+      #FLASH ERROR
+    end
   end
 ###### NEW POST ######
   get '/new_post' do #working on logistics of this
@@ -111,12 +115,12 @@ class ApplicationController < Sinatra::Base
   end
 
   def check_birthday(birthdate) #checks to see if age is greater than or eq 16
-    time_of_birth = birthdate.split('/')
+    time_of_birth = birthdate.split('-')
     birthday = Time.new
     birthday = birthday.to_a
-    birthday[3] = time_of_birth[1].to_i
-    birthday[4] = time_of_birth[0].to_i
-    birthday[5] = time_of_birth[2].to_i
+    birthday[3] = time_of_birth[2].to_i
+    birthday[4] = time_of_birth[1].to_i
+    birthday[5] = time_of_birth[0].to_i
     birthday = Time.utc(*birthday)
     age_check = birthday + 504911232
 
