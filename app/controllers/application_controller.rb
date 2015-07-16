@@ -50,11 +50,11 @@ class ApplicationController < Sinatra::Base
     @user = User.find_by(username: params[:username])
     if @user.password == params[:password]
       session[:user_id] = @user.id
-      redirect to '/'
+      redirect '/'
     else
       flash[:error] = "Your username or password does not match those on your account."
-      redirect to '/login'
-    end
+      redirect '/login'
+    end 
   end
 ###### NEW USER ######
   get '/new_user' do
@@ -71,7 +71,7 @@ class ApplicationController < Sinatra::Base
 
       redirect to "/"
     else
-      #FLASH ERROR
+      flash[:error] = "Your username or password does not match those on your account."
     end
   end
 ###### NEW POST ######
