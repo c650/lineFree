@@ -1,4 +1,11 @@
 <div class="container">
+    <% if flash[:error] %>
+        <div class="card-panel col s6">
+            <p>
+                <span><%= flash[:error] %></span>
+            </p>
+        </div>
+    <% end %>
     <div class="card-panel col s12">
         <form action="/search/:search_term" method="POST">
             <div class="input-field">
@@ -13,7 +20,7 @@
         <div class="col s12 m12 l6">
             <h4 class="center">Newest Posts</h4>
             <div class="card-panel hoverable">
-                <% @posts.first(4).reverse.each do |post| %>
+                <% @posts.first(3).reverse.each do |post| %>
                     <div class="section">
                         <div class="green-text ">
                             <%="#{post.place.name.capitalize}"%>
@@ -31,7 +38,7 @@
         <div class="col s12 m12 l6">
             <h4 class="center">Newest Places</h4>
             <div class="card-panel hoverable">
-                <% @place.first(4).reverse.each do |place| %>
+                <% @place.first(3).reverse.each do |place| %>
                     <div class="section">
                         <div class="green-text">
                             <%="#{place.name.capitalize}" %>

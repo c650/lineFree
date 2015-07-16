@@ -30,16 +30,17 @@ class ApplicationController < Sinatra::Base
       redirect to 'https://www.donaldjtrump.com/about'
     end
     @posts = Array.new
-    @place = Array.new
-    @place.push(Place.find_by(address: params[:search]))
-    @place.each do |place|
-    @posts.push(Post.find_by(place_id: place.id))
+    @place = (Place.find_by(address: params[:search]))
     end
     if @place == nil
       redirect to '/new_place'
-    else
-      erb :search_result
     end
+    if @place.is_a? Array
+      @place.each do |place|
+        @posts.push(Post.find_by(place_id: place.id))
+      end
+    end
+    erb :search_result
   end
 ###### LOGIN ######
   get '/login' do
@@ -50,10 +51,10 @@ class ApplicationController < Sinatra::Base
     @user = User.find_by(username: params[:username])
     if @user.password == params[:password]
       session[:user_id] = @user.id
-      redirect to '/'
+      redirect '/'
     else
       flash[:error] = "Your username or password does not match those on your account."
-      redirect to '/login'
+      redirect '/login'
     end
   end
 ###### NEW USER ######
@@ -71,8 +72,15 @@ class ApplicationController < Sinatra::Base
 
       redirect to "/"
     else
-      #FLASH ERROR
+      flash[:error] = "You are not old enough to sign up."
+      redirect to "/"
     end
+  end
+
+  get '/lolz' do
+    erb :lolz
+    sleep(20)
+    redirect to 'http://disney.com/'
   end
 ###### NEW POST ######
   get '/new_post' do #working on logistics of this
