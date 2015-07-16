@@ -1,13 +1,15 @@
-<div class="row">
-	<div class="col s12 m8 offset-m2 l6 offset-l3">
-		<ul class="collapsible" data-collapsible="accordion">
-			<% @place.each do |place| %>
-			    <li>
-			      <div class="collapsible-header"><%= "#{place.name.capitalize}" %> <span id="place_type"><%= "#{place.type}" %></span></div>
-			      <div class="collapsible-body"><h6><%= "#{place.address}" %></h6></div>
-			    </li>
-			<% end %>
-		</ul>
+
+<% if @place.is_a? Array %>
+	<% @place.each do |place| %>
+	    <div class="card-panel">
+	    	<div class="green-text row"><%= "#{place.name.capitalize}" %></div>
+	    	<div class="collapsible-body row"><h6><%= "#{place.address}" %></h6></div>
+	    </div>
+	<% end %>
+<% else %>
+	<div class="card-panel">
+		<div class="green-text row"><%= "#{place.name}" %></div>
+	    <div class="collapsible-body row"><h6><%= "#{place.address}" %></h6></div>
 	</div>
-</div>
-  
+<% end %>
+

@@ -1,22 +1,50 @@
-<div class="row">
-    <div class="col s12 m12 l3 offset-l3">
-        <ul class="collapsible" data-collapsible="accordion">
-            <% @place.each do |place| %>
-                <li>
-                  <div class="collapsible-header"><%= "#{place.name.capitalize}" %></div>
-                  <div class="collapsible-body"><h6><%= "#{place.address}" %></h6></div>
-                </li>
-            <% end %>
-        </ul>
+<div class="container">
+    <div class="card-panel col s12">
+        <form action="/search/:search_term" method="POST">
+            <div class="input-field">
+                <input id="search" name="search" type="search" required>
+                <label for="search"><i class="material-icons left">search</i>Search by Address</label>
+            </div>
+        </form>
     </div>
-    <div class="col s12 m12 l3">
-        <ul class="collapsible" data-collapsible="accordion">
-            <% @posts.each do |posts| %>
-                <li>
-                    <div class="collapsible-header"><%= "#{Place.find(posts.place_id).name.capitalize}" %><span id="posts_type"><%= "  #{posts.wait_time} minutes" %></span></div>
-                    <div class="collapsible-body"><h6><%= "#{Place.find(posts.place_id).address}" %></h6><p><%="#{posts.people_in_line}"%></p></div>
-                </li>
-            <% end %>
-        </ul>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col s12 m12 l6">
+            <h4 class="center">Newest Posts</h4>
+            <div class="card-panel hoverable">
+                <% @posts.first(4).reverse.each do |post| %>
+                    <div class="section">
+                        <div class="green-text ">
+                            <%="#{post.place.name.capitalize}"%>
+                        </div>
+                        <div class="content ">
+                            <%="#{post.wait_time}"%>
+                        </div>
+                    </div> 
+                    <% if post != @posts.reverse.last %>
+                    	<div class="divider"></div>
+                    <% end %>
+                <% end %>
+            </div>
+        </div>
+        <div class="col s12 m12 l6">
+            <h4 class="center">Newest Places</h4>
+            <div class="card-panel hoverable">
+                <% @place.first(4).reverse.each do |place| %>
+                    <div class="section">
+                        <div class="green-text">
+                            <%="#{place.name.capitalize}" %>
+                        </div>
+                        <div class="content ">
+                            <%="#{place.address}" %>
+                        </div>
+                    </div>
+                    <% if place != @place.reverse.last %>
+                    	<div class="divider"></div>
+                    <% end %>
+                <% end %>
+            </div>
+        </div>
     </div>
 </div>

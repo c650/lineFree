@@ -2,7 +2,14 @@ require_relative "../../config/environment.rb"
 require_relative "../models/user.rb"
 require_relative "../models/post.rb"
 require_relative "../models/place.rb"
+
+require "pry"
+require "sinatra/base"
+require "sinatra/flash"
+
 class ApplicationController < Sinatra::Base
+  
+  register Sinatra::Flash
   
   configure do
     set :public_folder, 'public'
@@ -26,7 +33,7 @@ class ApplicationController < Sinatra::Base
     @place = Array.new
     @place.push(Place.find_by(address: params[:search]))
     @place.each do |place|
-      @posts.push(Post.find_by(place_id: place.id))
+    @posts.push(Post.find_by(place_id: place.id))
     end
     if @place == nil
       redirect to '/new_place'
@@ -45,6 +52,7 @@ class ApplicationController < Sinatra::Base
       session[:user_id] = @user.id
       redirect to '/'
     else
+      flash[:error] = "Your username or password does not match those on your account."
       redirect to '/login'
     end
   end

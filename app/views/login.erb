@@ -1,4 +1,13 @@
 <div class="container">
+    <% if flash[:error] %>
+        <div class="container">
+            <div class="card-panel col s6">
+                <p>
+                    <span><%= flash[:error] %></span>
+                </p>
+            </div>
+        </div>
+        <% end %>
     <div class="row center-align">
         <div class="card-panel col s12 m6 l6 offset-l3">
             <div class="section">
