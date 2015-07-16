@@ -54,7 +54,7 @@ class ApplicationController < Sinatra::Base
     else
       flash[:error] = "Your username or password does not match those on your account."
       redirect '/login'
-    end 
+    end
   end
 ###### NEW USER ######
   get '/new_user' do
