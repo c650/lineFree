@@ -2,7 +2,9 @@ require_relative "../../config/environment.rb"
 require_relative "../models/user.rb"
 require_relative "../models/post.rb"
 require_relative "../models/place.rb"
+require_relative "../models/foursquare.rb"
 
+require "httparty"
 require "pry"
 require "sinatra/base"
 require "sinatra/flash"
@@ -19,8 +21,12 @@ class ApplicationController < Sinatra::Base
   end
 ###### ROOT ######
   get "/" do #needs error check if we don't have any post/places
-    @posts = Post.all
-    @place = Place.all
+    if Post.all != nil
+      @posts = Post.all
+    end
+    if Place.all != nil
+      @place = Place.all
+    end
     erb :index
   end
 
@@ -29,8 +35,16 @@ class ApplicationController < Sinatra::Base
     if params[:search] == 'Donald Trump for President'
       redirect to 'https://www.donaldjtrump.com/about'
     end
+    if logged_in?
+      @user = current_user
+      @results = Neighborhood.new.search_query(@user,params[:search])
+    else
+      @user = User.new(username: nil, first_name: nil, last_name: nil, email: nil, phone_number: nil, birthdate: nil, home_city: "Miami", home_state: "FL")
+      @results = Neighborhood.new.search_query(@user,params[:search])
+    end
+
     @posts = Array.new
-    @place = (Place.find_by(address: params[:search]))
+    @place = @results
     if @place == nil
       redirect to '/new_place'
     end
@@ -63,7 +77,7 @@ class ApplicationController < Sinatra::Base
   
   post '/new_user' do
     if check_birthday(params[:birthdate])
-      @user = User.new(username: params[:username], first_name: params[:first_name], last_name: params[:last_name], email: params[:email], phone_number: params[:phone_number], birthdate: params[:birthdate])
+      @user = User.new(username: params[:username], first_name: params[:first_name], last_name: params[:last_name], email: params[:email], phone_number: params[:phone_number], birthdate: params[:birthdate], home_city: params[:home_city], home_state: params[:state])
       @user.password = params[:password]
       @user.save
 

@@ -8,6 +8,7 @@ gem "sinatra-activerecord"
 gem "rake"
 gem "bcrypt"
 gem "sinatra-flash"
+gem "httparty"
 
 group :development do
   gem "pry"

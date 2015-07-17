@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150716134705) do
+ActiveRecord::Schema.define(version: 20150716225539) do
 
   create_table "places", force: :cascade do |t|
     t.string  "name"
@@ -36,6 +36,8 @@ ActiveRecord::Schema.define(version: 20150716134705) do
     t.string "phone_number"
     t.string "birthdate"
     t.string "password_hash"
+    t.string "home_city"
+    t.string "home_state"
   end
 
 end
