@@ -32,8 +32,6 @@ class ApplicationController < Sinatra::Base
 
 ###### SEARCH ######
   get "/search/" do
-    binding.pry
-    params[:search_term] = params[:search]
     @lat = request.location.latitude
     @long = request.location.longitude
     if @lat == 0.0
