@@ -1,18 +1,17 @@
 <div class="container">
     <div class="card-panel col s12">
-        <form action="/search/:search_term" method="POST">
+        <form action="/search/" method="GET">
             <div class="input-field">
                 <input id="search" name="search" type="search" required>
                 <label for="search"><i class="material-icons left">search</i>Search by Name</label>
             </div>
-        </form>
     </div>
     <div class="card-panel">
         <% @place.each do |place| %>
             <div class="row">
         	<div class="valign-wrapper">
                 <div class="col s12 l6">
-                    <div class="card-panel">
+                    <a href="/new_post" ><div class="card-panel hoverable">
                         <div class="green-text">
                             <%= "#{place.name.capitalize}" %>
                         </div>
@@ -22,12 +21,13 @@
                         	<%="#{place.address}" %>
                         <% end %>
                     </div>
+                    </a>
                 </div>
-                <div class="col l1">
+                <div class="col l1 hide-on-small-only">
                 	<div class="valign left green-text"><i class="material-icons right">send</i></div>
                 </div>
                 <div class="col s12 l5">
-                	<div class="card-panel">
+                	<div class="card-panel hoverable">
                     	<div class="green-text">
                     		<% if get_last_post(place) == nil %>
                             	<%="No posts have been made about this place yet!"%>

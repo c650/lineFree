@@ -46,7 +46,7 @@ class ApplicationController < Sinatra::Base
       redirect to 'https://www.donaldjtrump.com/about'
     end
 
-    @results = Neighborhood.new.search_query(@lat, @long , params[:search])
+    @results = Neighborhood.new.search_query(@lat, @long , params[:search].capitalize)
     if @results == nil
       redirect to '/search/'
     end
