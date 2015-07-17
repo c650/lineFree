@@ -32,7 +32,6 @@
 ###A Place has these attributes:
 
 	:name 
-	:type (restaurant or store)
 	:address (street address)
 	:city
 	:state (we start in USA) (must be dropdown for standardization)
@@ -54,3 +53,8 @@
 #Methods Needed
 	Need method for formatting addresses
 	Need method for checking birthdays
+
+
+
+#I NEED TO
+	make ADD A POST for each place in search results

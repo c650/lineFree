@@ -20,13 +20,13 @@
         <div class="col s12 m12 l6">
             <h4 class="center">Newest Posts</h4>
             <div class="card-panel hoverable">
-                <% @posts.first(3).reverse.each do |post| %>
+                <% @posts.first(7).reverse.each do |post| %>
                     <div class="section">
                         <div class="green-text ">
                             <%="#{post.place.name.capitalize}"%>
                         </div>
                         <div class="content ">
-                            <%="#{post.wait_time}"%>
+                            <%="#{post.wait_time} minute wait"%>
                         </div>
                     </div> 
                     <% if post != @posts.reverse.last %>
@@ -38,7 +38,7 @@
         <div class="col s12 m12 l6">
             <h4 class="center">Newest Places</h4>
             <div class="card-panel hoverable">
-                <% @place.first(3).reverse.each do |place| %>
+                <% @place.first(7).reverse.each do |place| %>
                     <div class="section">
                         <div class="green-text">
                             <%="#{place.name.capitalize}" %>

@@ -2,7 +2,9 @@ require_relative "../../config/environment.rb"
 require_relative "../models/user.rb"
 require_relative "../models/post.rb"
 require_relative "../models/place.rb"
-
+require_relative "../models/foursquare.rb"
+require "geocoder"
+require "httparty"
 require "pry"
 require "sinatra/base"
 require "sinatra/flash"
@@ -18,19 +20,29 @@ class ApplicationController < Sinatra::Base
     set :session_secret, "please_don't_hack_me" #security measure
   end
 ###### ROOT ######
-  get "/" do
-    @posts = Post.all
-    @place = Place.all
+  get "/" do #needs error check if we don't have any post/places
+    if Post.all != nil
+      @posts = Post.all
+    end
+    if Place.all != nil
+      @place = Place.all
+    end
     erb :index
   end
 
 ###### SEARCH ######
-  post'/search/:search_term' do
+  post"/search/:search_term" do
+    @lat = request.location.latitude
+    @long = request.location.longitude
+
     if params[:search] == 'Donald Trump for President'
       redirect to 'https://www.donaldjtrump.com/about'
     end
+
+    @results = Neighborhood.new.search_query(@lat, @long , params[:search])
+
     @posts = Array.new
-    @place = (Place.find_by(address: params[:search]))
+    @place = @results
     if @place == nil
       redirect to '/new_place'
     end
@@ -63,7 +75,7 @@ class ApplicationController < Sinatra::Base
   
   post '/new_user' do
     if check_birthday(params[:birthdate])
-      @user = User.new(username: params[:username], first_name: params[:first_name], last_name: params[:last_name], email: params[:email], phone_number: params[:phone_number], birthdate: params[:birthdate])
+      @user = User.new(username: params[:username], first_name: params[:first_name], last_name: params[:last_name], email: params[:email], phone_number: params[:phone_number], birthdate: params[:birthdate], home_city: params[:home_city], home_state: params[:state])
       @user.password = params[:password]
       @user.save
 
@@ -92,8 +104,13 @@ class ApplicationController < Sinatra::Base
   
   post '/new_post' do
     @place = Place.find_by(address: params[:address])
-    Post.create(user_id: session[:user_id], place_id: @place.id, wait_time: params[:wait_time], people_in_line: params[:people_in_line])
-    redirect to "/"
+    if @place != nil
+      Post.create(user_id: session[:user_id], place_id: @place.id, wait_time: params[:wait_time], people_in_line: params[:people_in_line])
+      redirect to "/"
+    else 
+      flash[:error] = "The place you were posting about doesn't exist in our records yet."
+      redirect to '/new_place'
+    end
   end
 ###### NEW PLACE ######
   get '/new_place' do 
