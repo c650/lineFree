@@ -34,13 +34,7 @@ class ApplicationController < Sinatra::Base
   post"/search/:search_term" do
     @lat = request.location.latitude
     @long = request.location.longitude
-    if @lat == 0.0
-      @lat = 25.605306
-    end
-    if @long == 0.0
-      @long = -80.321098
-    end
-    binding.pry
+
     if params[:search] == 'Donald Trump for President'
       redirect to 'https://www.donaldjtrump.com/about'
     end
