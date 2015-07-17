@@ -168,4 +168,8 @@ class ApplicationController < Sinatra::Base
     end
   end
 
+  def get_address(post)
+    Place.find(post.place_id).address
+  end
+
 end
