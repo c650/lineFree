@@ -5,53 +5,43 @@
                 <span><%= flash[:error] %></span>
             </p>
         </div>
-    <% end %>
-    <div class="card-panel col s12">
-        <form action="/search/:search_term" method="POST">
-            <div class="input-field">
-                <input id="search" name="search" type="search" required>
-                <label for="search"><i class="material-icons left">search</i>Search by Address</label>
+        <% end %>
+            <div class="card-panel col s12">
+                <form action="/search/:search_term" method="POST">
+                    <div class="input-field">
+                        <input id="search" name="search" type="search" required>
+                        <label for="search"><i class="material-icons left">search</i>Search by Name</label>
+                    </div>
+                </form>
             </div>
-        </form>
-    </div>
 </div>
 <div class="container">
     <div class="row">
         <div class="col s12 m12 l6">
             <h4 class="center">Newest Posts</h4>
-            <div class="card-panel hoverable">
-                <% @posts.first(7).reverse.each do |post| %>
-                    <div class="section">
-                        <div class="green-text ">
-                            <%="#{post.place.name.capitalize}"%>
-                        </div>
-                        <div class="content ">
-                            <%="#{post.wait_time} minute wait"%>
-                        </div>
-                    </div> 
-                    <% if post != @posts.reverse.last %>
-                    	<div class="divider"></div>
-                    <% end %>
+            <% @posts.first(5).reverse.each do |post| %>
+                <div class="card-panel hoverable">
+                    <div class="green-text ">
+                        <%="#{post.place.name.capitalize}"%>
+                    </div>
+                    <div class="content ">
+                        <%="#{post.wait_time} minute wait"%>
+                    </div>
+                </div>
                 <% end %>
-            </div>
         </div>
         <div class="col s12 m12 l6">
             <h4 class="center">Newest Places</h4>
-            <div class="card-panel hoverable">
-                <% @place.first(7).reverse.each do |place| %>
-                    <div class="section">
-                        <div class="green-text">
-                            <%="#{place.name.capitalize}" %>
-                        </div>
-                        <div class="content ">
-                            <%="#{place.address}" %>
-                        </div>
+            <% @place.first(5).reverse.each do |place| %>
+                <div class="card-panel hoverable">
+                    <div class="green-text">
+                        <%="#{place.name.capitalize}" %>
                     </div>
-                    <% if place != @place.reverse.last %>
-                    	<div class="divider"></div>
-                    <% end %>
+                    <div class="content ">
+                        <%="#{place.address}" %>
+                    </div>
+                </div>
                 <% end %>
-            </div>
         </div>
     </div>
 </div>
