@@ -58,6 +58,11 @@ class ApplicationController < Sinatra::Base
     end
     erb :search_result
   end
+###### USER PROFILE ######
+  get '/user/:id' do
+    @user = current_user
+    erb :user_profile
+  end
 ###### LOGIN ######
   get '/login' do
       erb :login
