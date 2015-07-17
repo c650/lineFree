@@ -3,13 +3,14 @@
         <form action="/search/:search_term" method="POST">
             <div class="input-field">
                 <input id="search" name="search" type="search" required>
-                <label for="search"><i class="material-icons left">search</i>Search by Address</label>
+                <label for="search"><i class="material-icons left">search</i>Search by Name</label>
             </div>
         </form>
     </div>
     <div class="card-panel">
         <% @place.each do |place| %>
             <div class="row">
+        	<div class="valign-wrapper">
                 <div class="col s12 l6">
                     <div class="card-panel">
                         <div class="green-text">
@@ -22,10 +23,10 @@
                         <% end %>
                     </div>
                 </div>
-                <div class="col l2">
-                	
+                <div class="col l1">
+                	<div class="valign left green-text"><i class="material-icons right">send</i></div>
                 </div>
-                <div class="col s12 l4">
+                <div class="col s12 l5">
                 	<div class="card-panel">
                     	<div class="green-text">
                     		<% if get_last_post(place) == nil %>
@@ -38,6 +39,7 @@
                 		
                 	</div>
                 </div>
+            </div>
             </div>
             <% end %>
     </div>
