@@ -1,5 +1,11 @@
 <div class="container">
-    
+    <% if flash[:error] %>
+        <div class="card-panel col s6">
+            <p>
+                <span><%= flash[:error] %></span>
+            </p>
+        </div>
+    <% end %>
     <div class="card-panel col s12 m6 l6 offset-l3">
         <form class="col s12" action="/new_user" method="POST">
             <legend>Sign up!</legend>

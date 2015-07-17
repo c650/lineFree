@@ -34,12 +34,14 @@ class ApplicationController < Sinatra::Base
   get "/search/" do
     @lat = request.location.latitude
     @long = request.location.longitude
+
     if @lat == 0.0
       @lat = 25.605306
     end
     if @long == 0.0
       @long = -80.321098
     end
+
     if params[:search] == 'Donald Trump for President'
       redirect to 'https://www.donaldjtrump.com/about'
     end
@@ -70,7 +72,8 @@ class ApplicationController < Sinatra::Base
   post '/login' do
     @user = User.find_by(username: params[:username])
     if @user == nil
-      redirect to '/new_user'
+      flash[:error] = "You need to create a new account."
+      redirect  '/new_user'
     end
     if @user.password == params[:password]
       session[:user_id] = @user.id
@@ -172,6 +175,10 @@ class ApplicationController < Sinatra::Base
 
   def get_address(post)
     Place.find(post.place_id).address
+  end
+
+  def get_last_post(place)
+    Post.find_by(place_id: place.id)
   end
 
 end
