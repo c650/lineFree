@@ -10,6 +10,8 @@ gem "bcrypt"
 gem "sinatra-flash"
 gem "httparty"
 gem "geocoder"
+gem "pg"
+
 
 group :development do
   gem "pry"
