@@ -177,4 +177,8 @@ class ApplicationController < Sinatra::Base
     Place.find(post.place_id).address
   end
 
+  def get_last_post(place)
+    Post.find_by(place_id: place.id)
+  end
+
 end

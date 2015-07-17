@@ -1,73 +1,46 @@
 <div class="container">
-<!-- <<<<<<< HEAD
     <div class="card-panel col s12">
         <form action="/search/:search_term" method="POST">
             <div class="input-field">
                 <input id="search" name="search" type="search" required>
-                <label for="search"><i class="material-icons left">search</i>Search by Name</label>
+                <label for="search"><i class="material-icons left">search</i>Search by Address</label>
             </div>
         </form>
     </div>
     <div class="card-panel">
-    <% #@place.each do |place| %>
-        <div class="row">
-            <div class="col s12 m6 l6">
-                <form action="/new_post" method="POST">
-                    <a href="/new_post" name="">
-                        <div class="card-panel s12 l6">
-                            <div class="green-text">
-                                <%= #"#{place.name.capitalize}" %>
-                            </div>
-                            <div class="content ">
-                                <%=#"#{place.address}" %>
-                            </div>
+        <% @place.each do |place| %>
+            <div class="row">
+                <div class="col s12 l6">
+                    <div class="card-panel">
+                        <div class="green-text">
+                            <%= "#{place.name.capitalize}" %>
                         </div>
-                    </a>
-                </form>
+                        <% if place.address == nil %>
+                            <%="Address Not Available"%>
+                        <% else %>
+                        	<%="#{place.address}" %>
+                        <% end %>
+                    </div>
+                </div>
+                <div class="col l2">
+                	
+                </div>
+                <div class="col s12 l4">
+                	<div class="card-panel">
+                    	<div class="green-text">
+                    		<% if get_last_post(place) == nil %>
+                            	<%="No posts have been made about this place yet!"%>
+                        	<% else %>
+                        		<%= "There are #{get_last_post(place).wait_time} minutes of line." %>
+                        	<% end %>
+                    		
+                    	</div>
+                		
+                	</div>
+                </div>
             </div>
-            <div class="col s12 m6 l6">
-            </div>
-        </div>
-        <% #end %>
-======= -->
-	<div class="row">
-		<div class="card-panel col s12">
-		    <form action="/search/:search_term" method="POST">
-		        <div class="input-field">
-		            <input id="search" name="search" type="search" required>
-		            <label for="search"><i class="material-icons left">search</i>Search by Address</label>
-		        </div>
-		    </form>
-		</div>
-	</div>
-	<div class="row">
-		<div class="card-panel col s12 l6">
-			<% if @place.is_a? Array %>
-			<div class="card-panel">
-				<% @place.each do |place| %>
-					    <div class="section">
-					    	<div class="green-text">
-					    		<%= "#{place.name.capitalize}" %>
-					    	</div>	
-						    <div class="content ">
-						    	<% if place.address == nil %>
-						    		<%="Address Not Available"%>
-						    	<% else %>
-		                        	<%="#{place.address}" %>
-		                        <% end %> 
-		                    </div>
-		                    <% if place != @place.reverse.last %>
-	                    		<div class="divider"></div>
-	                    	<% end %>
-					    </div>
-					    <% end %>
-				</div>
-			<% else %>
-				<div class="card-panel">
-					<div class="green-text row"><%= "#{@place.name}" %></div>
-				    <div class="collapsible-body row"><h6><%= "#{@place.address}" %></h6></div>
-				</div>
-			<% end %>
-		</div>
-	</div>
+            <% end %>
+    </div>
+</div>
+</div>
 </div>
