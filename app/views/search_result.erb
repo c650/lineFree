@@ -8,7 +8,6 @@
 		        </div>
 		    </form>
 		</div>
-		<p>Searching without an account is only available for residents of Miami, FL.</p>
 	</div>
 	<div class="row">
 		<div class="card-panel col s12 l6">
@@ -20,7 +19,11 @@
 					    		<%= "#{place.name.capitalize}" %>
 					    	</div>	
 						    <div class="content ">
-		                        <%="#{place.address}" %>
+						    	<% if place.address == nil %>
+						    		<%="Address Not Available"%>
+						    	<% else %>
+		                        	<%="#{place.address}" %>
+		                        <% end %> 
 		                    </div>
 		                    <% if place != @place.reverse.last %>
 	                    		<div class="divider"></div>

@@ -7,7 +7,7 @@
         </div>
     <% end %>
     <div class="card-panel col s12">
-        <form action="/search/:search_term" method="POST">
+        <form action="/search/" method="GET">
             <div class="input-field">
                 <input id="search" name="search" type="search" required>
                 <label for="search"><i class="material-icons left">search</i>Search by Address</label>
@@ -20,10 +20,10 @@
         <div class="col s12 m12 l6">
             <h4 class="center">Newest Posts</h4>
             <div class="card-panel hoverable">
-                <% @posts.first(7).reverse.each do |post| %>
+                <% @posts.first(5).reverse.each do |post| %>
                     <div class="section">
                         <div class="green-text ">
-                            <%="#{post.place.name.capitalize}"%>
+                            <%="#{post.place.name.capitalize}"%> @ <%="#{get_address(post)}"%>
                         </div>
                         <div class="content ">
                             <%="#{post.wait_time} minute wait"%>
@@ -38,7 +38,7 @@
         <div class="col s12 m12 l6">
             <h4 class="center">Newest Places</h4>
             <div class="card-panel hoverable">
-                <% @place.first(7).reverse.each do |place| %>
+                <% @place.first(5).reverse.each do |place| %>
                     <div class="section">
                         <div class="green-text">
                             <%="#{place.name.capitalize}" %>
