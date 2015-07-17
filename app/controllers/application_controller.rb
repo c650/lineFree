@@ -31,10 +31,17 @@ class ApplicationController < Sinatra::Base
   end
 
 ###### SEARCH ######
-  post"/search/:search_term" do
+  get "/search/" do
+    binding.pry
+    params[:search_term] = params[:search]
     @lat = request.location.latitude
     @long = request.location.longitude
-
+    if @lat == 0.0
+      @lat = 25.605306
+    end
+    if @long == 0.0
+      @long = -80.321098
+    end
     if params[:search] == 'Donald Trump for President'
       redirect to 'https://www.donaldjtrump.com/about'
     end
@@ -88,11 +95,6 @@ class ApplicationController < Sinatra::Base
     end
   end
 
-  get '/lolz' do
-    erb :lolz
-    sleep(20)
-    redirect to 'http://disney.com/'
-  end
 ###### NEW POST ######
   get '/new_post' do #working on logistics of this
     if logged_in?
