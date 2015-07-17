@@ -45,12 +45,11 @@ class ApplicationController < Sinatra::Base
     end
 
     @results = Neighborhood.new.search_query(@lat, @long , params[:search])
-
+    if @results == nil
+      redirect to '/search/'
+    end
     @posts = Array.new
     @place = @results
-    if @place == nil
-      redirect to '/new_place'
-    end
     if @place.is_a? Array
       @place.each do |place|
         @posts.push(Post.find_by(place_id: place.id))
@@ -70,6 +69,9 @@ class ApplicationController < Sinatra::Base
 
   post '/login' do
     @user = User.find_by(username: params[:username])
+    if @user == nil
+      redirect to '/new_user'
+    end
     if @user.password == params[:password]
       session[:user_id] = @user.id
       redirect '/'
