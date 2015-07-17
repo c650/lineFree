@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="row">
+        <div class="col s12 m12 l6 offset-l3">
+            <h4 class="center">Your Profile</h4>
+            <div class="card-panel hoverable">
+                <h5><%= "#{@user.first_name}"%>  <%="#{@user.last_name}"%></h5><p class="green-text"><%="#{@user.username}"%></p>
+                <div class="divider"></div>
+                <p><%="#{@user.home_city}, #{@user.home_state}"%></p>
+                <p><%="#{@user.email}"%></p>
+                <% if @user.phone_number != nil %>
+                    <p><%="#{@user.phone_number}"%></p>
+                <% end %> 
+            </div>
+        </div>
+    </div>
+</div>

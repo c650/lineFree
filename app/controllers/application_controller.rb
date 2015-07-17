@@ -31,32 +31,38 @@ class ApplicationController < Sinatra::Base
   end
 
 ###### SEARCH ######
-  post"/search/:search_term" do
+  get "/search/" do
     @lat = request.location.latitude
     @long = request.location.longitude
-    if @lat == 0 && @long == 0
-       @lat = 25.643679
-       @long = -80.335541
 
-    end 
+    if @lat == 0.0
+      @lat = 25.605306
+    end
+    if @long == 0.0
+      @long = -80.321098
+    end
 
     if params[:search] == 'Donald Trump for President'
       redirect to 'https://www.donaldjtrump.com/about'
     end
 
     @results = Neighborhood.new.search_query(@lat, @long , params[:search])
-
+    if @results == nil
+      redirect to '/search/'
+    end
     @posts = Array.new
     @place = @results
-    if @place == nil
-      redirect to '/new_place'
-    end
     if @place.is_a? Array
       @place.each do |place|
         @posts.push(Post.find_by(place_id: place.id))
       end
     end
     erb :search_result
+  end
+###### USER PROFILE ######
+  get '/user/:id' do
+    @user = current_user
+    erb :user_profile
   end
 ###### LOGIN ######
   get '/login' do
@@ -97,11 +103,6 @@ class ApplicationController < Sinatra::Base
     end
   end
 
-  get '/lolz' do
-    erb :lolz
-    sleep(20)
-    redirect to 'http://disney.com/'
-  end
 ###### NEW POST ######
   get '/new_post' do #working on logistics of this
     if logged_in?
@@ -170,6 +171,10 @@ class ApplicationController < Sinatra::Base
     else
       return false
     end
+  end
+
+  def get_address(post)
+    Place.find(post.place_id).address
   end
 
 end
