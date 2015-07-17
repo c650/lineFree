@@ -9,6 +9,7 @@ gem "rake"
 gem "bcrypt"
 gem "sinatra-flash"
 gem "httparty"
+gem "geocoder"
 
 group :development do
   gem "pry"

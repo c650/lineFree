@@ -3,7 +3,7 @@ require_relative "../models/user.rb"
 require_relative "../models/post.rb"
 require_relative "../models/place.rb"
 require_relative "../models/foursquare.rb"
-
+require "geocoder"
 require "httparty"
 require "pry"
 require "sinatra/base"
@@ -32,16 +32,20 @@ class ApplicationController < Sinatra::Base
 
 ###### SEARCH ######
   post"/search/:search_term" do
+    @lat = request.location.latitude
+    @long = request.location.longitude
+    if @lat == 0.0
+      @lat = 25.605306
+    end
+    if @long == 0.0
+      @long = -80.321098
+    end
+    binding.pry
     if params[:search] == 'Donald Trump for President'
       redirect to 'https://www.donaldjtrump.com/about'
     end
-    if logged_in?
-      @user = current_user
-      @results = Neighborhood.new.search_query(@user,params[:search])
-    else
-      @user = User.new(username: nil, first_name: nil, last_name: nil, email: nil, phone_number: nil, birthdate: nil, home_city: "Miami", home_state: "FL")
-      @results = Neighborhood.new.search_query(@user,params[:search])
-    end
+
+    @results = Neighborhood.new.search_query(@lat, @long , params[:search])
 
     @posts = Array.new
     @place = @results

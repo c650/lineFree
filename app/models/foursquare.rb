@@ -1,14 +1,14 @@
 require 'httparty'
 require 'pry'
+require 'geocoder'
 class Neighborhood
 
   ##!!!NEEDS TO BE FILLED OUT WITH CLIENT ID AND SECRET PROVIDED BY FOURSQUARE
   CLIENT_ID = "5RNFE5VSYATZNDR5ISG1FHGD0K5J3H0WZD4J101RRYFKFMP2"
   CLIENT_SECRET = "FZUW1M5UIGGKHRR4KUHMKGQL15R14A4VKYWX42Y2KT10X01F"
 
-  def search_query(user, query)
-
-    uri = "https://api.foursquare.com/v2/venues/search?near=#{user.home_city},#{user.home_state}&query=#{query}&client_id=#{CLIENT_ID}&client_secret=#{CLIENT_SECRET}&v=20150716"
+  def search_query(lat, long, query)
+    uri = "https://api.foursquare.com/v2/venues/search?ll=#{lat},#{long}&query=#{query}&intent=checkin&client_id=#{CLIENT_ID}&client_secret=#{CLIENT_SECRET}&v=20150716"
     encoded = URI.parse(URI.encode(uri)) # to handle spaces in the location
     @api_response = HTTParty.get(encoded)
     results = Array.new
