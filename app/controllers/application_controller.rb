@@ -31,7 +31,7 @@ class ApplicationController < Sinatra::Base
   end
 
 ###### SEARCH ######
-  post'/search/:search_term' do
+  post"/search/:search_term" do
     if params[:search] == 'Donald Trump for President'
       redirect to 'https://www.donaldjtrump.com/about'
     end

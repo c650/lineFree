@@ -13,7 +13,7 @@ class Neighborhood
     @api_response = HTTParty.get(encoded)
     results = Array.new
     @api_response['response']['venues'].each do |venue|
-      place = Place.find_or_create_by(name: venue['name'], address: venue['location']['address'], city: venue['location']['city'], state: venue['location']['state'], zipcode: venue['location']['postalCode'])
+      place = Place.find_or_create_by(name: venue['name'].downcase, address: venue['location']['address'], city: venue['location']['city'].downcase, state: venue['location']['state'], zipcode: venue['location']['postalCode'])
       results.push(place)
     end
     #PARSE THRU DATA TO RETURN ARRAY OF PLACES
