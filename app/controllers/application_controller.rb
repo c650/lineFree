@@ -5,7 +5,7 @@ require_relative "../models/place.rb"
 require_relative "../models/foursquare.rb"
 require "geocoder"
 require "httparty"
-require "pry"
+# require "pry"
 require "sinatra/base"
 require "sinatra/flash"
 

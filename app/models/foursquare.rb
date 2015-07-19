@@ -1,5 +1,5 @@
 require 'httparty'
-require 'pry'
+# require 'pry'
 require 'geocoder'
 class Neighborhood
 
