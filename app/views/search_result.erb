@@ -2,47 +2,93 @@
     <div class="card-panel col s12">
         <form action="/search/" method="GET">
             <div class="input-field">
-                <input id="search" name="search" type="search" required>
+                <input id="search" name="search" type="search">
                 <label for="search"><i class="material-icons left">search</i>Search by Name</label>
             </div>
     </div>
     <div class="card-panel">
         <% @place.each do |place| %>
             <div class="row">
-        	<div class="valign-wrapper">
-                <div class="col s12 l6">
-                    <a href="/new_post" ><div class="card-panel hoverable">
-                        <div class="green-text">
-                            <%= "#{place.name.capitalize}" %>
-                        </div>
-                        <% if place.address == nil %>
-                            <%="Address Not Available"%>
-                        <% else %>
-                        	<%="#{place.address}" %>
-                        <% end %>
+                <div class="valign-wrapper">
+                    <div class="col s12 l6">
+                        <% if logged_in? %>
+                            <a class="modal-trigger" href="#modal<%= place.id %>">
+                                <div class="card-panel hoverable">
+                                    <div class="green-text">
+                                        <%= "#{place.name.capitalize}" %>
+                                    </div>
+                                    <% if place.address == nil %>
+                                        <%="Address Not Available"%>
+                                            <% else %>
+                                                <%="#{place.address}" %>
+                                                    <% end %>
+                                </div>
+                            </a>
+                            <% else %>
+                                <div class="card-panel hoverable">
+                                    <div class="green-text">
+                                        <%= "#{place.name.capitalize}" %>
+                                    </div>
+                                    <% if place.address == nil %>
+                                        <%="Address Not Available"%>
+                                            <% else %>
+                                                <%="#{place.address}" %>
+                                                    <% end %>
+                                </div>
+                                <% end %>
                     </div>
-                    </a>
+                    <div class="col l1 hide-on-small-only">
+                        <div class="valign left green-text"><i class="material-icons right">send</i></div>
+                    </div>
+                    <div class="col s12 l5">
+                        <div class="card-panel hoverable">
+                            <div class="green-text">
+                                <% if get_last_post(place) == nil %>
+                                    <%="No posts have been made about this place yet!"%>
+                                        <% else %>
+                                            <%= "There are #{get_last_post(place).wait_time} minutes of line." %>
+                                                <% end %>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col l1 hide-on-small-only">
-                	<div class="valign left green-text"><i class="material-icons right">send</i></div>
-                </div>
-                <div class="col s12 l5">
-                	<div class="card-panel hoverable">
-                    	<div class="green-text">
-                    		<% if get_last_post(place) == nil %>
-                            	<%="No posts have been made about this place yet!"%>
-                        	<% else %>
-                        		<%= "There are #{get_last_post(place).wait_time} minutes of line." %>
-                        	<% end %>
-                    		
-                    	</div>
-                		
-                	</div>
-                </div>
-            </div>
             </div>
             <% end %>
     </div>
 </div>
-</div>
-</div>
+<% if logged_in? %>
+    <% @place.each do |place| %>
+        <div id="modal<%= place.id %>" class="modal">
+            <div class="modal-content">
+                <h5>New Post</h5>
+                <form action="/new_post" method="POST">
+                    <div class="input-field col s12 l6">
+                        <input id="address" type="text" name="address" value="<%= place.address %>" required>
+                        <label for="address">Address</label>
+                    </div>
+                    <div class="input-field col s12 l6">
+                        <select name="wait_time">
+                            <option value="6-10">6-10 minutes</option>
+                            <option value="11-15">11-15 minutes</option>
+                            <option value="16-19">16-19 minutes</option>
+                            <option value="20+">20+ minutes</option>
+                        </select>
+                        <label>Wait Time</label>
+                    </div>
+                    <div class="input-field col s12 l6">
+                        <select name="people_in_line">
+                            <option>1-5</option>
+                            <option value="6-10">6-10</option>
+                            <option value="11-15">11-15</option>
+                            <option value="16-19">16-20</option>
+                            <option>21+</option>
+                        </select>
+                        <label>People in the line</label>
+                    </div>
+                    <button class="btn waves-effect waves-light green" type="submit" name="action">Post</button>
+                </form>
+            </div>
+        </div>
+        <% end %>
+            <% else %>
+                <% end %>
