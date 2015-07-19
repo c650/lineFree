@@ -10,10 +10,10 @@ gem "bcrypt"
 gem "sinatra-flash"
 gem "httparty"
 gem "geocoder"
-# gem "pg"
+gem "pg"
 
 group :development do
-  gem "pry"
+  # gem "pry"
   gem "shotgun"
   gem "tux"
   gem "sqlite3"

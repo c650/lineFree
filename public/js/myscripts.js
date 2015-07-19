@@ -4,7 +4,9 @@
       $('.datepicker').pickadate({
       format: 'mm/dd/yyyy'
       });
+      $('.modal-trigger').leanModal();
   	});
+
 
   	$(".dropdown-button").dropdown();
   	$('.fixed-action-btn').openFAB();

@@ -5,7 +5,7 @@ require_relative "../models/place.rb"
 require_relative "../models/foursquare.rb"
 require "geocoder"
 require "httparty"
-require "pry"
+# require "pry"
 require "sinatra/base"
 require "sinatra/flash"
 
@@ -20,7 +20,7 @@ class ApplicationController < Sinatra::Base
     set :session_secret, "please_don't_hack_me" #security measure
   end
 ###### ROOT ######
-  get "/" do #needs error check if we don't have any post/places
+  get '/' do #needs error check if we don't have any post/places
     if Post.all != nil
       @posts = Post.all
     end
@@ -31,7 +31,7 @@ class ApplicationController < Sinatra::Base
   end
 
 ###### SEARCH ######
-  get "/search/" do
+  get '/search/' do
     @lat = request.location.latitude
     @long = request.location.longitude
 
@@ -104,13 +104,13 @@ class ApplicationController < Sinatra::Base
   end
 
 ###### NEW POST ######
-  get '/new_post' do #working on logistics of this
-    if logged_in?
-      erb :new_post
-    else
-      redirect to '/login'
-    end
-  end
+  # get '/new_post' do #working on logistics of this
+  #   if logged_in?
+  #     erb :new_post
+  #   else
+  #     redirect to '/login'
+  #   end
+  # end
   
   post '/new_post' do
     @place = Place.find_by(address: params[:address])
