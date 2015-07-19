@@ -13,7 +13,7 @@ gem "geocoder"
 gem "pg"
 
 group :development do
-  gem "pry"
+  # gem "pry"
   gem "shotgun"
   gem "tux"
   gem "sqlite3"
