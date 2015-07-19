@@ -1,3 +1,6 @@
+<script type="text/javascript">
+    window.alert("This app works best when you allow us to use your location. Otherwise, the location defaults to Miami, FL");
+</script>
 <div class="container">
     <% if flash[:error] %>
         <div class="card-panel col s6">
@@ -36,7 +39,11 @@
                         <%="#{place.name.capitalize}" %>
                     </div>
                     <div class="content ">
-                        <%="#{place.address}" %>
+                        <% if place.address == nil %>
+                            <%="Address Not Available"%>
+                        <% else %>
+                            <%="#{place.address}" %>
+                        <% end %>
                     </div>
                 </div>
                 <% end %>

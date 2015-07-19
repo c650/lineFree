@@ -6,6 +6,7 @@
                 <label for="search"><i class="material-icons left">search</i>Search by Name</label>
             </div>
     </div>
+    <p>If you did not allow us to use your location, search results default to Miami, FL.</p>
     <div class="card-panel">
         <% @place.each do |place| %>
             <div class="row">
@@ -19,9 +20,9 @@
                                     </div>
                                     <% if place.address == nil %>
                                         <%="Address Not Available"%>
-                                            <% else %>
-                                                <%="#{place.address}" %>
-                                                    <% end %>
+                                    <% else %>
+                                        <%="#{place.address}" %>
+                                    <% end %>
                                 </div>
                             </a>
                             <% else %>
