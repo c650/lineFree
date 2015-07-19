@@ -20,7 +20,7 @@ class ApplicationController < Sinatra::Base
     set :session_secret, "please_don't_hack_me" #security measure
   end
 ###### ROOT ######
-  get "/" do #needs error check if we don't have any post/places
+  get '/' do #needs error check if we don't have any post/places
     if Post.all != nil
       @posts = Post.all
     end
@@ -31,7 +31,7 @@ class ApplicationController < Sinatra::Base
   end
 
 ###### SEARCH ######
-  get "/search/" do
+  get '/search/' do
     @lat = request.location.latitude
     @long = request.location.longitude
 
