@@ -32,8 +32,8 @@ class ApplicationController < Sinatra::Base
 
 ###### SEARCH ######
   get '/search/' do
-    @lat = request.location.latitude
-    @long = request.location.longitude
+    @lat = params[:lat]
+    @long = params[:lon]
 
     if (@lat == 0.0) || (@lat == nil)
       @lat = 25.605306
