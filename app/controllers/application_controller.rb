@@ -32,15 +32,15 @@ class ApplicationController < Sinatra::Base
 
 ###### SEARCH ######
   get '/search/' do
-    # @lat = params[:lat]
-    # @long = params[:lon]
+    @lat = params[:lat]
+    @long = params[:lon]
 
-    # if (@lat == 0.0) || (@lat == nil)
+    if (@lat == 0.0) || (@lat == nil)
       @lat = 25.605306
-    # end
-    # if (@long == 0.0) || (@long == nil)
+    end
+    if (@long == 0.0) || (@long == nil)
       @long = -80.321098
-    # end
+    end
 
     @results = Neighborhood.new.search_query(@lat, @long , params[:search].capitalize)
     if (@results == nil) || (@results.empty?)
