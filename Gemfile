@@ -1,7 +1,6 @@
 # A sample Gemfile
 source "https://rubygems.org"
 
-gem "Indirizzo"
 gem "sinatra"
 gem "activerecord"
 gem "sinatra-activerecord"
