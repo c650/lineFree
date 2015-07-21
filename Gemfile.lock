@@ -1,7 +1,6 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    Indirizzo (0.1.7)
     activemodel (4.2.3)
       activesupport (= 4.2.3)
       builder (~> 3.1)
@@ -68,7 +67,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  Indirizzo
   activerecord
   bcrypt
   geocoder
