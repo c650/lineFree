@@ -128,7 +128,7 @@ class ApplicationController < Sinatra::Base
   end
   
   post '/new_place' do
-    Place.create(address: params[:address], name: params[:name].downcase, city: params[:city].downcase, state: params[:state], zipcode: params[:zipcode].to_i)
+    Place.find_or_create_by(address: params[:address], name: params[:name], city: params[:city], state: params[:state], zipcode: params[:zipcode])
     redirect to "/"
   end
 ###### LOGOUT ######
