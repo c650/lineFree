@@ -31,15 +31,23 @@
                     switch(error.code) {
                         case error.PERMISSION_DENIED:
                             alert("User denied the request for Geolocation.");
+                            document.getElementById('lat').value = 25.605306;
+                            document.getElementById('lon').value = -80.321098;
                             break;
                         case error.POSITION_UNAVAILABLE:
                             alert("Location information is unavailable.");
+                            document.getElementById('lat').value = 25.605306;
+                            document.getElementById('lon').value = -80.321098;
                             break;
                         case error.TIMEOUT:
                             alert("The request to get user location timed out.");
+                            document.getElementById('lat').value = 25.605306;
+                            document.getElementById('lon').value = -80.321098;
                             break;
                         case error.UNKNOWN_ERROR:
                             alert("An unknown error occurred.");
+                            document.getElementById('lat').value = 25.605306;
+                            document.getElementById('lon').value = -80.321098;
                             break;
                     }
 
