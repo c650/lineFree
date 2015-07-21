@@ -12,7 +12,7 @@ class Neighborhood
     encoded = URI.parse(URI.encode(uri)) # to handle spaces in the location
     @api_response = HTTParty.get(encoded)
     results = Array.new
-    if @api_response != nil
+    if (@api_response['response']['venues'].empty? == false) && (@api_response['response']['venues'] != nil)
       @api_response['response']['venues'].each do |venue|
         place = Place.find_or_create_by(name: venue['name'].downcase, address: venue['location']['address'], city: venue['location']['city'].downcase, state: venue['location']['state'], zipcode: venue['location']['postalCode'])
         results.push(place)
@@ -20,7 +20,6 @@ class Neighborhood
     else
       results = []
     end
-    #PARSE THRU DATA TO RETURN ARRAY OF PLACES
     return results
   end
 

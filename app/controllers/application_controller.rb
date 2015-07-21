@@ -43,8 +43,8 @@ class ApplicationController < Sinatra::Base
     # end
 
     @results = Neighborhood.new.search_query(@lat, @long , params[:search].capitalize)
-    if @results == nil
-      redirect to '/search/'
+    if (@results == nil) || (@results.empty?)
+      redirect to '/'
     end
     @posts = Array.new
     @place = @results
