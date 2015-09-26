@@ -35,10 +35,8 @@ class ApplicationController < Sinatra::Base
     @lat = params[:lat]
     @long = params[:lon]
 
-    if (@lat == 0.0) || (@lat == nil)
-      @lat = 25.605306
-    end
-    if (@long == 0.0) || (@long == nil)
+    if @lat == "FALSE" || @long == "FALSE"
+      @lat = 25.605306 
       @long = -80.321098
     end
 
