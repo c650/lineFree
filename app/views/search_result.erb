@@ -1,10 +1,51 @@
 <div class="container">
     <div class="card-panel col s12">
         <form action="/search/" method="GET">
+            <script>
+                getLocation();
+
+                function getLocation() {
+                    if (navigator.geolocation) {
+                        navigator.geolocation.getCurrentPosition(showPosition,showError);
+                    } else {
+                        alert("Geolocation is not supported by this browser.");}
+                }
+
+                function showPosition(position) {
+
+                    lat = position.coords.latitude;
+                    lon = position.coords.longitude;
+                    document.getElementById('lat').value = lat;
+                    document.getElementById('lon').value = lon;
+
+                }
+
+                function showError(error) {
+                    switch(error.code) {
+                        case error.PERMISSION_DENIED:
+                            alert("User denied the request for Geolocation.");
+                            break;
+                        case error.POSITION_UNAVAILABLE:
+                            alert("Location information is unavailable.");
+                            break;
+                        case error.TIMEOUT:
+                            alert("The request to get user location timed out.");
+                            break;
+                        case error.UNKNOWN_ERROR:
+                            alert("An unknown error occurred.");
+                            break;
+                    }
+
+                }
+                </script>
+                        
+                <input type='hidden' id="lat" name='lat' value='FALSE' />
+                <input type='hidden' id="lon" name='lon' value='FALSE' />
             <div class="input-field">
-                <input id="search" name="search" type="search">
+                <input id="search" name="search" type="search" required>
                 <label for="search"><i class="material-icons left">search</i>Search by Name</label>
             </div>
+        </form>
     </div>
     <p>If you did not allow us to use your location, search results default to Miami, FL.</p>
     <div class="card-panel">

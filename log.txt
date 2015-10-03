@@ -1,0 +1,101 @@
+2015-10-03T18:55:15.016507+00:00 app[web.1]: [2015-10-03 18:55:15] INFO  ruby 2.0.0 (2015-04-13) [x86_64-linux]
+2015-10-03T18:55:15.555456+00:00 heroku[web.1]: State changed from starting to up
+2015-10-03T18:55:16.859025+00:00 app[web.1]: WARN: tilt autoloading 'tilt/erb' in a non thread-safe way; explicit require 'tilt/erb' suggested.
+2015-10-03T18:55:17.374754+00:00 heroku[router]: at=info method=GET path="/" host=linefree.herokuapp.com request_id=985a3bdd-e92b-4b5b-82a6-4f2392c4d3eb fwd="99.4.169.65" dyno=web.1 connect=0ms service=570ms status=200 bytes=7305
+2015-10-03T18:55:17.686137+00:00 heroku[router]: at=info method=GET path="/css/materialize.min.css" host=linefree.herokuapp.com request_id=31b2b8e8-8d99-4e85-acaf-410754db1ac1 fwd="99.4.169.65" dyno=web.1 connect=1ms service=46ms status=200 bytes=145539
+2015-10-03T18:55:17.771731+00:00 heroku[router]: at=info method=GET path="/css/styles.css" host=linefree.herokuapp.com request_id=11106fe0-44ca-42ab-bf33-dd4b76e1f4b5 fwd="99.4.169.65" dyno=web.1 connect=0ms service=12ms status=200 bytes=1431
+2015-10-03T18:55:17.878907+00:00 heroku[router]: at=info method=GET path="/js/myscripts.js" host=linefree.herokuapp.com request_id=cc6f9a64-2666-4d25-abd0-f2e7dcab0216 fwd="99.4.169.65" dyno=web.1 connect=1ms service=93ms status=200 bytes=842
+2015-10-03T18:55:17.935508+00:00 heroku[router]: at=info method=GET path="/js/materialize.min.js" host=linefree.herokuapp.com request_id=98ff9bbb-8589-4df9-be2f-23839fb4543c fwd="99.4.169.65" dyno=web.1 connect=1ms service=139ms status=200 bytes=122285
+2015-10-03T18:55:22.659014+00:00 heroku[router]: at=info method=GET path="/login" host=linefree.herokuapp.com request_id=27aa4aeb-1fa5-41ae-a337-3ec7209882af fwd="99.4.169.65" dyno=web.1 connect=1ms service=30ms status=200 bytes=3497
+2015-10-03T18:55:22.791361+00:00 heroku[router]: at=info method=GET path="/css/styles.css" host=linefree.herokuapp.com request_id=23f9726f-fee4-43fc-a1b7-5fb5de35e5df fwd="99.4.169.65" dyno=web.1 connect=3ms service=28ms status=304 bytes=166
+2015-10-03T18:55:22.774430+00:00 heroku[router]: at=info method=GET path="/js/myscripts.js" host=linefree.herokuapp.com request_id=f3670d20-6107-4419-ae43-e51e998dffbd fwd="99.4.169.65" dyno=web.1 connect=1ms service=15ms status=304 bytes=166
+2015-10-03T18:55:22.763463+00:00 heroku[router]: at=info method=GET path="/css/materialize.min.css" host=linefree.herokuapp.com request_id=6a530cd6-691a-476e-9a13-9a4a74a627b5 fwd="99.4.169.65" dyno=web.1 connect=1ms service=10ms status=304 bytes=166
+2015-10-03T18:55:22.810936+00:00 heroku[router]: at=info method=GET path="/js/materialize.min.js" host=linefree.herokuapp.com request_id=10c12611-1ee5-4ccc-bedf-67167260a3b8 fwd="99.4.169.65" dyno=web.1 connect=1ms service=46ms status=304 bytes=166
+2015-10-03T18:55:42.081697+00:00 heroku[router]: at=info method=POST path="/login" host=linefree.herokuapp.com request_id=2249006d-6850-4431-9f0d-3a078b88da89 fwd="99.4.169.65" dyno=web.1 connect=0ms service=75ms status=303 bytes=940
+2015-10-03T18:55:42.257324+00:00 heroku[router]: at=info method=GET path="/new_user" host=linefree.herokuapp.com request_id=df4b0ece-430a-402b-80db-93ff9e8c942c fwd="99.4.169.65" dyno=web.1 connect=1ms service=10ms status=200 bytes=8714
+2015-10-03T18:55:42.520315+00:00 heroku[router]: at=info method=GET path="/css/materialize.min.css" host=linefree.herokuapp.com request_id=d49dcd3b-a62c-43b8-87ed-2642f432841e fwd="99.4.169.65" dyno=web.1 connect=0ms service=34ms status=304 bytes=166
+2015-10-03T18:55:42.531369+00:00 heroku[router]: at=info method=GET path="/css/styles.css" host=linefree.herokuapp.com request_id=feddfd95-e61b-41a5-a9f2-59eb9d46afec fwd="99.4.169.65" dyno=web.1 connect=0ms service=49ms status=304 bytes=166
+2015-10-03T18:55:42.569082+00:00 heroku[router]: at=info method=GET path="/js/materialize.min.js" host=linefree.herokuapp.com request_id=464d0ccf-423c-4c87-a0ed-0f720fbfd6fd fwd="99.4.169.65" dyno=web.1 connect=0ms service=82ms status=304 bytes=166
+2015-10-03T18:55:42.575980+00:00 heroku[router]: at=info method=GET path="/js/myscripts.js" host=linefree.herokuapp.com request_id=9948e4cc-e6ac-41dc-bc95-a32993ce3e8c fwd="99.4.169.65" dyno=web.1 connect=0ms service=85ms status=304 bytes=166
+2015-10-03T18:55:50.973515+00:00 heroku[router]: at=info method=GET path="/login" host=linefree.herokuapp.com request_id=78165851-1b89-43a1-a46f-7272afd7fcba fwd="99.4.169.65" dyno=web.1 connect=0ms service=17ms status=200 bytes=3497
+2015-10-03T18:55:51.173422+00:00 heroku[router]: at=info method=GET path="/css/styles.css" host=linefree.herokuapp.com request_id=fa203364-0ed4-4ca4-b948-c6f00d279c97 fwd="99.4.169.65" dyno=web.1 connect=0ms service=11ms status=304 bytes=166
+2015-10-03T18:55:51.207809+00:00 heroku[router]: at=info method=GET path="/css/materialize.min.css" host=linefree.herokuapp.com request_id=0876d4ac-c771-4414-9aa2-5ad18ca2310e fwd="99.4.169.65" dyno=web.1 connect=2ms service=26ms status=304 bytes=166
+2015-10-03T18:55:51.179393+00:00 heroku[router]: at=info method=GET path="/js/materialize.min.js" host=linefree.herokuapp.com request_id=4f952179-075f-4790-abaf-418e5df4af9d fwd="99.4.169.65" dyno=web.1 connect=0ms service=9ms status=304 bytes=166
+2015-10-03T18:55:51.184791+00:00 heroku[router]: at=info method=GET path="/js/myscripts.js" host=linefree.herokuapp.com request_id=4135df51-67ee-4ed7-8432-3a8be094f731 fwd="99.4.169.65" dyno=web.1 connect=0ms service=10ms status=304 bytes=166
+2015-10-03T18:56:01.760251+00:00 heroku[router]: at=info method=POST path="/login" host=linefree.herokuapp.com request_id=84547802-b12d-46c5-ba72-02c5f9fd6c4c fwd="99.4.169.65" dyno=web.1 connect=1ms service=3179ms status=303 bytes=881
+2015-10-03T18:56:02.285195+00:00 heroku[router]: at=info method=GET path="/" host=linefree.herokuapp.com request_id=7142bb18-19ee-4341-9c90-d6d0267c2806 fwd="99.4.169.65" dyno=web.1 connect=0ms service=390ms status=200 bytes=6760
+2015-10-03T18:56:02.421740+00:00 heroku[router]: at=info method=GET path="/css/materialize.min.css" host=linefree.herokuapp.com request_id=611e82ab-413d-4af5-9a22-893cc0be288b fwd="99.4.169.65" dyno=web.1 connect=0ms service=7ms status=304 bytes=166
+2015-10-03T18:56:02.424531+00:00 heroku[router]: at=info method=GET path="/js/myscripts.js" host=linefree.herokuapp.com request_id=58c441bd-a7c2-486a-99b7-b0c96c9dec2a fwd="99.4.169.65" dyno=web.1 connect=1ms service=5ms status=304 bytes=166
+2015-10-03T18:56:02.426778+00:00 heroku[router]: at=info method=GET path="/js/materialize.min.js" host=linefree.herokuapp.com request_id=f6e93130-b1e2-481a-a79f-d8b2a73c3f2d fwd="99.4.169.65" dyno=web.1 connect=0ms service=11ms status=304 bytes=166
+2015-10-03T18:56:02.435562+00:00 heroku[router]: at=info method=GET path="/css/styles.css" host=linefree.herokuapp.com request_id=e8bbaa13-456c-4e6d-a77d-12f87759c921 fwd="99.4.169.65" dyno=web.1 connect=1ms service=23ms status=304 bytes=166
+2015-10-03T18:56:07.067515+00:00 heroku[router]: at=info method=GET path="/search/?lat=FALSE&lon=FALSE&search=Flanians" host=linefree.herokuapp.com request_id=31e30e91-2561-4198-8979-1dcdd4c71dc0 fwd="99.4.169.65" dyno=web.1 connect=0ms service=101ms status=200 bytes=2782
+2015-10-03T18:56:12.129335+00:00 heroku[router]: at=info method=GET path="/search/?search=Flanigan%27s" host=linefree.herokuapp.com request_id=eddeefe0-b2b3-4217-96e7-96049092f4ce fwd="99.4.169.65" dyno=web.1 connect=0ms service=165ms status=500 bytes=326
+2015-10-03T18:56:12.107000+00:00 app[web.1]: 2015-10-03 18:56:12 - NoMethodError - undefined method `each' for nil:NilClass:
+2015-10-03T18:56:12.107006+00:00 app[web.1]: 	/app/app/models/foursquare.rb:16:in `search_query'
+2015-10-03T18:56:12.107008+00:00 app[web.1]: 	/app/app/controllers/application_controller.rb:43:in `block in <class:ApplicationController>'
+2015-10-03T18:56:12.107009+00:00 app[web.1]: 	/app/vendor/bundle/ruby/2.0.0/gems/sinatra-1.4.6/lib/sinatra/base.rb:1610:in `call'
+2015-10-03T18:56:12.107011+00:00 app[web.1]: 	/app/vendor/bundle/ruby/2.0.0/gems/sinatra-1.4.6/lib/sinatra/base.rb:1610:in `block in compile!'
+2015-10-03T18:56:12.107012+00:00 app[web.1]: 	/app/vendor/bundle/ruby/2.0.0/gems/sinatra-1.4.6/lib/sinatra/base.rb:974:in `[]'
+2015-10-03T18:56:12.107013+00:00 app[web.1]: 	/app/vendor/bundle/ruby/2.0.0/gems/sinatra-1.4.6/lib/sinatra/base.rb:974:in `block (3 levels) in route!'
+2015-10-03T18:56:12.107014+00:00 app[web.1]: 	/app/vendor/bundle/ruby/2.0.0/gems/sinatra-1.4.6/lib/sinatra/base.rb:993:in `route_eval'
+2015-10-03T18:56:12.107015+00:00 app[web.1]: 	/app/vendor/bundle/ruby/2.0.0/gems/sinatra-1.4.6/lib/sinatra/base.rb:974:in `block (2 levels) in route!'
+2015-10-03T18:56:12.107017+00:00 app[web.1]: 	/app/vendor/bundle/ruby/2.0.0/gems/sinatra-1.4.6/lib/sinatra/base.rb:1014:in `block in process_route'
+2015-10-03T18:56:12.107018+00:00 app[web.1]: 	/app/vendor/bundle/ruby/2.0.0/gems/sinatra-1.4.6/lib/sinatra/base.rb:1012:in `catch'
+2015-10-03T18:56:12.107019+00:00 app[web.1]: 	/app/vendor/bundle/ruby/2.0.0/gems/sinatra-1.4.6/lib/sinatra/base.rb:1012:in `process_route'
+2015-10-03T18:56:12.107020+00:00 app[web.1]: 	/app/vendor/bundle/ruby/2.0.0/gems/sinatra-1.4.6/lib/sinatra/base.rb:972:in `block in route!'
+2015-10-03T18:56:12.107022+00:00 app[web.1]: 	/app/vendor/bundle/ruby/2.0.0/gems/sinatra-1.4.6/lib/sinatra/base.rb:971:in `each'
+2015-10-03T18:56:12.107023+00:00 app[web.1]: 	/app/vendor/bundle/ruby/2.0.0/gems/sinatra-1.4.6/lib/sinatra/base.rb:971:in `route!'
+2015-10-03T18:56:12.107024+00:00 app[web.1]: 	/app/vendor/bundle/ruby/2.0.0/gems/sinatra-1.4.6/lib/sinatra/base.rb:1084:in `block in dispatch!'
+2015-10-03T18:56:12.107025+00:00 app[web.1]: 	/app/vendor/bundle/ruby/2.0.0/gems/sinatra-1.4.6/lib/sinatra/base.rb:1066:in `block in invoke'
+2015-10-03T18:56:12.107026+00:00 app[web.1]: 	/app/vendor/bundle/ruby/2.0.0/gems/sinatra-1.4.6/lib/sinatra/base.rb:1066:in `catch'
+2015-10-03T18:56:12.107028+00:00 app[web.1]: 	/app/vendor/bundle/ruby/2.0.0/gems/sinatra-1.4.6/lib/sinatra/base.rb:1066:in `invoke'
+2015-10-03T18:56:12.107031+00:00 app[web.1]: 	/app/vendor/bundle/ruby/2.0.0/gems/sinatra-1.4.6/lib/sinatra/base.rb:1066:in `block in invoke'
+2015-10-03T18:56:12.107032+00:00 app[web.1]: 	/app/vendor/bundle/ruby/2.0.0/gems/sinatra-1.4.6/lib/sinatra/base.rb:1066:in `catch'
+2015-10-03T18:56:12.107033+00:00 app[web.1]: 	/app/vendor/bundle/ruby/2.0.0/gems/sinatra-1.4.6/lib/sinatra/base.rb:1066:in `invoke'
+2015-10-03T18:56:12.107034+00:00 app[web.1]: 	/app/vendor/bundle/ruby/2.0.0/gems/sinatra-1.4.6/lib/sinatra/base.rb:906:in `call!'
+2015-10-03T18:56:12.107029+00:00 app[web.1]: 	/app/vendor/bundle/ruby/2.0.0/gems/sinatra-1.4.6/lib/sinatra/base.rb:1081:in `dispatch!'
+2015-10-03T18:56:12.107030+00:00 app[web.1]: 	/app/vendor/bundle/ruby/2.0.0/gems/sinatra-1.4.6/lib/sinatra/base.rb:906:in `block in call!'
+2015-10-03T18:56:12.107089+00:00 app[web.1]: 	/app/vendor/bundle/ruby/2.0.0/gems/sinatra-1.4.6/lib/sinatra/base.rb:894:in `call'
+2015-10-03T18:56:12.107090+00:00 app[web.1]: 	/app/vendor/bundle/ruby/2.0.0/gems/rack-protection-1.5.3/lib/rack/protection/xss_header.rb:18:in `call'
+2015-10-03T18:56:12.107091+00:00 app[web.1]: 	/app/vendor/bundle/ruby/2.0.0/gems/rack-protection-1.5.3/lib/rack/protection/base.rb:49:in `call'
+2015-10-03T18:56:12.107092+00:00 app[web.1]: 	/app/vendor/bundle/ruby/2.0.0/gems/rack-protection-1.5.3/lib/rack/protection/base.rb:49:in `call'
+2015-10-03T18:56:12.107093+00:00 app[web.1]: 	/app/vendor/bundle/ruby/2.0.0/gems/rack-protection-1.5.3/lib/rack/protection/path_traversal.rb:16:in `call'
+2015-10-03T18:56:12.107095+00:00 app[web.1]: 	/app/vendor/bundle/ruby/2.0.0/gems/rack-protection-1.5.3/lib/rack/protection/base.rb:49:in `call'
+2015-10-03T18:56:12.107097+00:00 app[web.1]: 	/app/vendor/bundle/ruby/2.0.0/gems/rack-protection-1.5.3/lib/rack/protection/base.rb:49:in `call'
+2015-10-03T18:56:12.107098+00:00 app[web.1]: 	/app/vendor/bundle/ruby/2.0.0/gems/rack-protection-1.5.3/lib/rack/protection/frame_options.rb:31:in `call'
+2015-10-03T18:56:12.107094+00:00 app[web.1]: 	/app/vendor/bundle/ruby/2.0.0/gems/rack-protection-1.5.3/lib/rack/protection/json_csrf.rb:18:in `call'
+2015-10-03T18:56:12.107106+00:00 app[web.1]: 	/app/vendor/bundle/ruby/2.0.0/gems/rack-1.6.4/lib/rack/session/abstract/id.rb:220:in `call'
+2015-10-03T18:56:12.107099+00:00 app[web.1]: 	/app/vendor/bundle/ruby/2.0.0/gems/rack-1.6.4/lib/rack/session/abstract/id.rb:225:in `context'
+2015-10-03T18:56:12.107107+00:00 app[web.1]: 	/app/vendor/bundle/ruby/2.0.0/gems/rack-1.6.4/lib/rack/nulllogger.rb:9:in `call'
+2015-10-03T18:56:12.107108+00:00 app[web.1]: 	/app/vendor/bundle/ruby/2.0.0/gems/rack-1.6.4/lib/rack/head.rb:13:in `call'
+2015-10-03T18:56:12.107109+00:00 app[web.1]: 	/app/vendor/bundle/ruby/2.0.0/gems/sinatra-1.4.6/lib/sinatra/base.rb:181:in `call'
+2015-10-03T18:56:12.107110+00:00 app[web.1]: 	/app/vendor/bundle/ruby/2.0.0/gems/sinatra-1.4.6/lib/sinatra/base.rb:2021:in `call'
+2015-10-03T18:56:12.107111+00:00 app[web.1]: 	/app/vendor/bundle/ruby/2.0.0/gems/sinatra-1.4.6/lib/sinatra/base.rb:1486:in `block in call'
+2015-10-03T18:56:12.107112+00:00 app[web.1]: 	/app/vendor/bundle/ruby/2.0.0/gems/sinatra-1.4.6/lib/sinatra/base.rb:1795:in `synchronize'
+2015-10-03T18:56:12.107113+00:00 app[web.1]: 	/app/vendor/bundle/ruby/2.0.0/gems/sinatra-1.4.6/lib/sinatra/base.rb:1486:in `call'
+2015-10-03T18:56:12.107114+00:00 app[web.1]: 	/app/vendor/bundle/ruby/2.0.0/gems/rack-1.6.4/lib/rack/handler/webrick.rb:88:in `service'
+2015-10-03T18:56:12.112112+00:00 app[web.1]: 	/app/vendor/ruby-2.0.0/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+2015-10-03T18:56:12.112117+00:00 app[web.1]: 	/app/vendor/ruby-2.0.0/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+2015-10-03T18:56:12.112156+00:00 app[web.1]: 	/app/vendor/ruby-2.0.0/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+2015-10-03T18:56:27.666914+00:00 heroku[router]: at=info method=GET path="/" host=linefree.herokuapp.com request_id=69552155-7650-4535-a73e-8def87f0a513 fwd="99.4.169.65" dyno=web.1 connect=4ms service=107ms status=200 bytes=7305
+2015-10-03T18:56:27.825629+00:00 heroku[router]: at=info method=GET path="/css/styles.css" host=linefree.herokuapp.com request_id=69084efb-094e-4907-9620-7aac4bbc3abe fwd="99.4.169.65" dyno=web.1 connect=1ms service=26ms status=200 bytes=1431
+2015-10-03T18:56:27.850869+00:00 heroku[router]: at=info method=GET path="/js/materialize.min.js" host=linefree.herokuapp.com request_id=dcd3ddb7-a03c-4cc2-bf31-1bb7ca48d28f fwd="99.4.169.65" dyno=web.1 connect=1ms service=29ms status=200 bytes=122285
+2015-10-03T18:56:27.844046+00:00 heroku[router]: at=info method=GET path="/js/myscripts.js" host=linefree.herokuapp.com request_id=5d8c1d1a-c799-4196-969c-b98d1cd3e453 fwd="99.4.169.65" dyno=web.1 connect=1ms service=17ms status=200 bytes=842
+2015-10-03T18:56:27.829941+00:00 heroku[router]: at=info method=GET path="/css/materialize.min.css" host=linefree.herokuapp.com request_id=a6ad9ede-1b59-4e7a-a19b-a95b1bd41262 fwd="99.4.169.65" dyno=web.1 connect=2ms service=30ms status=200 bytes=145539
+2015-10-03T18:56:28.240112+00:00 heroku[router]: at=info method=GET path="/favicon.ico" host=linefree.herokuapp.com request_id=ba4070fa-6821-4ff9-8898-d45941caeb27 fwd="99.4.169.65" dyno=web.1 connect=1ms service=18ms status=404 bytes=319
+2015-10-03T18:56:38.617558+00:00 heroku[router]: at=info method=GET path="/search/?lat=25.693413099999997&lon=-80.28973660000001&search=Flanigan%27s" host=linefree.herokuapp.com request_id=aa5623e5-b8f7-4d9a-a368-30e5f2d44fea fwd="99.4.169.65" dyno=web.1 connect=3ms service=205ms status=200 bytes=28550
+2015-10-03T18:56:38.757289+00:00 heroku[router]: at=info method=GET path="/css/styles.css" host=linefree.herokuapp.com request_id=3b1682eb-d651-4fc1-a45a-8cf80ad76e5e fwd="99.4.169.65" dyno=web.1 connect=2ms service=7ms status=304 bytes=166
+2015-10-03T18:56:38.768215+00:00 heroku[router]: at=info method=GET path="/js/myscripts.js" host=linefree.herokuapp.com request_id=2202d29c-998e-48b1-96af-c3fe7ad00b41 fwd="99.4.169.65" dyno=web.1 connect=2ms service=5ms status=304 bytes=166
+2015-10-03T18:56:38.774849+00:00 heroku[router]: at=info method=GET path="/css/materialize.min.css" host=linefree.herokuapp.com request_id=43cbc234-5a0e-44d8-80b6-238a43b14efc fwd="99.4.169.65" dyno=web.1 connect=2ms service=25ms status=304 bytes=166
+2015-10-03T18:56:38.757322+00:00 heroku[router]: at=info method=GET path="/js/materialize.min.js" host=linefree.herokuapp.com request_id=4b44734e-3c4e-4084-9448-7177ac387f79 fwd="99.4.169.65" dyno=web.1 connect=2ms service=12ms status=304 bytes=166
+2015-10-03T18:56:40.823917+00:00 heroku[router]: at=info method=GET path="/login" host=linefree.herokuapp.com request_id=af76f305-1a9c-41cc-afe8-da602aa91f9e fwd="99.4.169.65" dyno=web.1 connect=1ms service=31ms status=200 bytes=3497
+2015-10-03T18:56:42.476121+00:00 heroku[router]: at=info method=POST path="/login" host=linefree.herokuapp.com request_id=0ea3031e-8cff-4b63-9755-acb8606da4f6 fwd="99.4.169.65" dyno=web.1 connect=2ms service=136ms status=303 bytes=881
+2015-10-03T18:56:42.601234+00:00 heroku[router]: at=info method=GET path="/" host=linefree.herokuapp.com request_id=046ab969-eef7-4731-9a5c-8d81b8b0b569 fwd="99.4.169.65" dyno=web.1 connect=1ms service=60ms status=200 bytes=6760
+2015-10-03T18:56:48.992280+00:00 heroku[router]: at=info method=GET path="/search/?lat=25.693436499999997&lon=-80.2897989&search=Flanigan%27s" host=linefree.herokuapp.com request_id=6a8f5127-c17d-4364-8460-90db4690bc45 fwd="99.4.169.65" dyno=web.1 connect=1ms service=274ms status=200 bytes=62779
+2015-10-03T18:56:50.392622+00:00 heroku[router]: at=info method=GET path="/new_post?place=54" host=linefree.herokuapp.com request_id=0f0091fb-a5c8-4b31-8d39-2b5a1c7d356a fwd="99.4.169.65" dyno=web.1 connect=2ms service=99ms status=200 bytes=3985
+2015-10-03T18:56:50.536079+00:00 heroku[router]: at=info method=GET path="/css/materialize.min.css" host=linefree.herokuapp.com request_id=29dd49ae-3be7-45a2-9744-98702fd0d0df fwd="99.4.169.65" dyno=web.1 connect=1ms service=7ms status=304 bytes=166
+2015-10-03T18:56:50.548690+00:00 heroku[router]: at=info method=GET path="/js/myscripts.js" host=linefree.herokuapp.com request_id=f80c9393-5f75-46e4-9355-265cbb64273f fwd="99.4.169.65" dyno=web.1 connect=1ms service=7ms status=304 bytes=166
+2015-10-03T18:56:50.533926+00:00 heroku[router]: at=info method=GET path="/js/materialize.min.js" host=linefree.herokuapp.com request_id=6e16c900-a302-464a-b0e8-eb68eaf87122 fwd="99.4.169.65" dyno=web.1 connect=1ms service=6ms status=304 bytes=166
+2015-10-03T18:56:50.547286+00:00 heroku[router]: at=info method=GET path="/css/styles.css" host=linefree.herokuapp.com request_id=4da50193-e5f5-4b09-a76c-68941706ad1b fwd="99.4.169.65" dyno=web.1 connect=2ms service=8ms status=304 bytes=166
+2015-10-03T18:56:52.424846+00:00 heroku[router]: at=info method=POST path="/new_post" host=linefree.herokuapp.com request_id=c26cc0d1-082e-4e51-bbf8-355ec6492232 fwd="99.4.169.65" dyno=web.1 connect=16ms service=45ms status=303 bytes=326
+2015-10-03T18:56:52.578385+00:00 heroku[router]: at=info method=GET path="/" host=linefree.herokuapp.com request_id=541a4f57-8646-4adc-a6a6-c01d25237b67 fwd="99.4.169.65" dyno=web.1 connect=1ms service=91ms status=200 bytes=7135
