@@ -10,10 +10,10 @@
     <% end %>
     <div class="card-panel col s12 m6 l6 offset-l3">
         <form class="col s12" action="/new_post" method="POST">
-            <h5>New Post</h5>
+            <h5><%= @place.name.split(' ').map{|x| x.capitalize}.join(' ') %> | New Post</h5>
                 <div class="row">
                     <div class="input-field col s12 l6">
-                        <input id="address" type="text" name="address" required>
+                        <input id="address" value="<%= @place.address %>" type="text" name="address" required>
                         <label for="address">Address</label>
                     </div>
 

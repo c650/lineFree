@@ -23,14 +23,10 @@
                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                 <% if logged_in? %>
                     <ul class="right hide-on-med-and-down">
-                        <li><a href="/new_post">Post</a></li>
-                        <li><a href="/new_place">Add Place</a></li>
                         <li><a href="/user/<%= current_user.id%>">You</a></li>
                         <li><a href="/logout">Logout</a></li>
                     </ul>
                     <ul class="side-nav" id="mobile-demo">
-                        <li><a href="/new_post">Post</a></li>
-                        <li><a href="/new_place">Add Place</a></li>
                         <li><a href="/user/<%= current_user.id %>">You</a></li>
                         <li><a href="/logout">Logout</a></li>
                     </ul>
@@ -52,9 +48,9 @@
     <%= yield %>
     <footer id="footer">
         <center>
-            <p>Created by Charles Bailey and Gianluca Zigni during Flatiron School's Advanced Software Engineering Course</p>
-            <p>Using the Foursquare API</p>
-            <p>Copyright &copy 2015</p>
+            <p>Created by Charles Bailey and Gianluca Zigni during Flatiron School's Advanced Software Engineering Course <BR> Using the Foursquare API</p>
+            <p>Copyright &copy 2015. All Rights Reserved</p>
+            <a href="/about-us">About Us</a>
         </center>
     </footer>
 </body>

@@ -13,7 +13,7 @@
                 <div class="valign-wrapper">
                     <div class="col s12 l6">
                         <% if logged_in? %>
-                            <a class="modal-trigger" href="#modal<%= place.id %>">
+                            <a class="modal-trigger" href="/new_post?place=<%= place.id %>">
                                 <div class="card-panel hoverable">
                                     <div class="green-text">
                                         <%= "#{place.name.capitalize}" %>

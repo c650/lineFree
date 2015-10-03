@@ -98,13 +98,15 @@ class ApplicationController < Sinatra::Base
   end
 
 ###### NEW POST ######
-  # get '/new_post' do #working on logistics of this
-  #   if logged_in?
-  #     erb :new_post
-  #   else
-  #     redirect to '/login'
-  #   end
-  # end
+  get '/new_post' do #working on logistics of this
+    if logged_in?
+      @place = Place.find(params[:place])
+
+      erb :new_post
+    else
+      redirect to '/login'
+    end
+  end
   
   post '/new_post' do
     @place = Place.find_by(address: params[:address])
@@ -135,7 +137,10 @@ class ApplicationController < Sinatra::Base
 
     redirect '/'
   end
-
+###### ABOUT US ######
+  get '/about-us' do
+    erb :about_us
+  end
 ###### HELPER METHODS ######
 
   def current_user #method to get the current user
